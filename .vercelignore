@@ -1,0 +1,12 @@
+.openai
+.vinext
+.wrangler
+.next
+build
+dist
+drizzle
+examples
+worker
+dev-server.err
+dev-server.log
+*.log
