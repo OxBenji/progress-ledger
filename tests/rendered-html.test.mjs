@@ -23,13 +23,13 @@ async function render() {
   );
 }
 
-test("server-renders the Proof of Progress product surface", async () => {
+test("server-renders the Progress Ledger product surface", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Proof of Progress/);
+  assert.match(html, /Progress Ledger/);
   assert.match(html, /Verified work first/);
   assert.match(html, /No token at genesis/);
   assert.match(html, /Agent-native/);

@@ -1,4 +1,4 @@
-# Proof of Progress
+# Progress Ledger
 
 A fast MVP surface for a verified contribution network:
 

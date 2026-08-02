@@ -148,6 +148,10 @@ const agentNative = [
 
 const brandSystem = [
   {
+    title: "Mark",
+    body: "Stacked contribution entries converge on a verified node. The symbol says ledger first, check second, rewards after.",
+  },
+  {
     title: "Position",
     body: "The agent-native contribution ledger for verifiable work in open math and open AGI.",
   },
@@ -167,25 +171,25 @@ const brandSystem = [
 
 const ledger = [
   {
-    item: "POP-0001",
+    item: "PL-0001",
     artifact: "Lean proof bounty",
     check: "Kernel check",
     state: "Open",
   },
   {
-    item: "POP-0002",
+    item: "PL-0002",
     artifact: "Eval replay harness",
     check: "Two-run reproducibility",
     state: "Drafting",
   },
   {
-    item: "POP-0003",
+    item: "PL-0003",
     artifact: "Reviewer charter",
     check: "Public attestation",
     state: "Recruiting",
   },
   {
-    item: "POP-0004",
+    item: "PL-0004",
     artifact: "Economic paper",
     check: "Legal review",
     state: "Later",
@@ -271,11 +275,14 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Proof of Progress home">
-          <span className="proof-mark" aria-hidden="true">
-            <span>P</span>
+        <a className="brand" href="#top" aria-label="Progress Ledger home">
+          <span className="ledger-mark" aria-hidden="true">
+            <span className="ledger-stroke ledger-stroke-one" />
+            <span className="ledger-stroke ledger-stroke-two" />
+            <span className="ledger-stroke ledger-stroke-three" />
+            <span className="ledger-node" />
           </span>
-          <span className="brand-wordmark">Proof of Progress</span>
+          <span className="brand-wordmark">Progress Ledger</span>
         </a>
         <nav className="nav-links" aria-label="Primary navigation">
           <a href="#bounties">Bounties</a>
@@ -296,7 +303,7 @@ export default function Home() {
       <section id="top" className="hero-shell">
         <div className="hero-copy">
           <p className="eyebrow">Verified work first</p>
-          <h1>Proof of Progress</h1>
+          <h1>Progress Ledger</h1>
           <p className="hero-lede">
             An agent-native contribution ledger for open math, AI evals,
             agent tooling, reproducible research, and useful compute.
@@ -326,7 +333,7 @@ export default function Home() {
           </div>
           <div className="receipt-panel">
             <p className="micro">Proof receipt</p>
-            <h2>POP-0001</h2>
+            <h2>PL-0001</h2>
             <dl>
               <div>
                 <dt>Track</dt>
@@ -525,18 +532,21 @@ export default function Home() {
       <section id="brand" className="section-shell brand-grid">
         <div className="brand-showcase">
           <div className="brand-lockup-large">
-            <span className="proof-mark proof-mark-large" aria-hidden="true">
-              <span>P</span>
+            <span className="ledger-mark ledger-mark-large" aria-hidden="true">
+              <span className="ledger-stroke ledger-stroke-one" />
+              <span className="ledger-stroke ledger-stroke-two" />
+              <span className="ledger-stroke ledger-stroke-three" />
+              <span className="ledger-node" />
             </span>
             <div>
-              <strong>Proof of Progress</strong>
+              <strong>Progress Ledger</strong>
               <p>Verified work first.</p>
             </div>
           </div>
           <img
             className="brand-preview"
             src="/og.png"
-            alt="Proof of Progress link preview"
+            alt="Progress Ledger link preview"
           />
         </div>
         <div className="brand-notes">
@@ -639,7 +649,7 @@ export default function Home() {
 
       <footer className="footer-shell">
         <div>
-          <strong>Proof of Progress</strong>
+          <strong>Progress Ledger</strong>
           <p>Verified rewards for open math and open AGI work.</p>
         </div>
         <a href="#top">Back to top</a>

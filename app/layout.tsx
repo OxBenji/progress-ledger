@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Proof of Progress";
+const title = "Progress Ledger";
 const description =
   "An agent-native contribution ledger for verified work in open math, AI evals, agent tooling, reproducible research, and useful compute.";
 
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(`${protocol}://${host}`),
     title: {
       default: title,
-      template: "%s | Proof of Progress",
+      template: "%s | Progress Ledger",
     },
     description,
     openGraph: {
@@ -41,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og.png",
           width: 1200,
           height: 630,
-          alt: "Proof of Progress social preview",
+          alt: "Progress Ledger social preview",
         },
       ],
     },
