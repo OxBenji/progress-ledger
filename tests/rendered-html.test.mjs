@@ -30,10 +30,13 @@ test("server-renders the Proof of Progress product surface", async () => {
 
   const html = await response.text();
   assert.match(html, /Proof of Progress/);
-  assert.match(html, /Make verified progress programmable/);
-  assert.match(html, /No token first/);
+  assert.match(html, /Verified work first/);
+  assert.match(html, /No token at genesis/);
+  assert.match(html, /Agent-native/);
+  assert.match(html, /Chain-agnostic/);
   assert.match(html, /Bounty board/);
-  assert.match(html, /X launch room/);
+  assert.match(html, /Brand system/);
+  assert.match(html, /Public launch kit/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 

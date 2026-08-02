@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 const title = "Proof of Progress";
 const description =
-  "A verified contribution network for open math, AI evals, agent tooling, reproducible research, and useful compute.";
+  "An agent-native contribution ledger for verified work in open math, AI evals, agent tooling, reproducible research, and useful compute.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     openGraph: {
       title,
-      description: "Bounties, reputation, reviews, and a public ledger before any token.",
+      description: "Verified work first. Agent-native proof receipts before any token.",
       type: "website",
       siteName: title,
       images: [
