@@ -9,6 +9,11 @@ These documents are intentionally early. They are here so contributors can press
 - [Reviewer rubric](reviewer-rubric.md)
 - [Human and agent submission format](submission-format.md)
 
+## Examples
+
+- [Example proof receipt](../examples/receipts/agent-pr.md)
+- [Example verifiable bounty](../examples/bounties/proof-receipt-example.md)
+
 ## Current Principle
 
 Progress Ledger should reward verified artifacts, not claims, status, affiliation, or hype.
