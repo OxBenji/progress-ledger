@@ -149,7 +149,7 @@ const agentNative = [
 const statusLinks = [
   {
     title: "Read first",
-    body: "How to contribute before v0.1 without turning the repo into noise.",
+    body: "Start here for the contribution path before v0.1.",
     href: "https://github.com/OxBenji/progress-ledger/issues/6",
   },
   {
@@ -425,6 +425,7 @@ export default function Home() {
               className="status-link"
               href={item.href}
               key={item.title}
+              aria-label={`${item.title}: ${item.body}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -442,7 +443,7 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">v0.1 drafts</p>
-            <h2>Tomorrow's work is already public.</h2>
+            <h2>v0.1 drafts are already public.</h2>
           </div>
           <a
             className="text-link"
@@ -459,6 +460,7 @@ export default function Home() {
               className="draft-doc-card"
               href={doc.href}
               key={doc.title}
+              aria-label={`${doc.title}: ${doc.body}`}
               target="_blank"
               rel="noreferrer"
             >
