@@ -386,6 +386,7 @@ h3 {
 .plan-card,
 .post-card,
 .status-link,
+.draft-doc-card,
 .brand-note {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -664,6 +665,65 @@ h3 {
 .learning-grid h2,
 .brand-notes h2 {
   margin-bottom: 0;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.draft-docs-section {
+  padding-top: 54px;
+  padding-bottom: 34px;
+}
+
+.draft-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.draft-doc-card {
+  display: flex;
+  min-width: 0;
+  min-height: 260px;
+  flex-direction: column;
+  padding: 18px;
+  color: inherit;
+  box-shadow: none;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.draft-doc-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(16, 114, 79, 0.42);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.draft-doc-card > span {
+  width: fit-content;
+  margin-bottom: 26px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.draft-doc-card h3 {
+  margin-bottom: 12px;
+}
+
+.draft-doc-card p {
+  margin: auto 0 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .segmented {
@@ -1134,6 +1194,7 @@ h3 {
 @media (max-width: 1040px) {
   .flow-grid,
   .status-actions,
+  .draft-docs-grid,
   .track-grid,
   .plan-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1228,6 +1289,7 @@ h3 {
   .receipt-panel dl,
   .bounty-facts,
   .status-actions,
+  .draft-docs-grid,
   .track-grid,
   .brand-note-grid,
   .plan-grid,
@@ -1242,6 +1304,10 @@ h3 {
 
   .status-link {
     min-height: 128px;
+  }
+
+  .draft-doc-card {
+    min-height: 210px;
   }
 
   .brand-lockup-large {

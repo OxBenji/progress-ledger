@@ -164,6 +164,33 @@ const statusLinks = [
   },
 ];
 
+const draftDocs = [
+  {
+    title: "Proof receipt schema",
+    state: "Draft",
+    body: "The public record for artifact, check, reviewer, verification state, and reward state.",
+    href: "https://github.com/OxBenji/progress-ledger/blob/main/docs/proof-receipt-schema.md",
+  },
+  {
+    title: "Bounty template",
+    state: "Pressure-testing",
+    body: "Problem, accepted artifact, objective verification, reviewer requirement, reward terms, and failure credit.",
+    href: "https://github.com/OxBenji/progress-ledger/blob/main/docs/bounty-template.md",
+  },
+  {
+    title: "Reviewer rubric",
+    state: "Draft",
+    body: "What reviewers attest to, what they do not attest to, conflicts, disputes, and anti-gaming rules.",
+    href: "https://github.com/OxBenji/progress-ledger/blob/main/docs/reviewer-rubric.md",
+  },
+  {
+    title: "Submission format",
+    state: "Draft",
+    body: "One path for humans, agents, and human-agent teams: artifact first, verification second.",
+    href: "https://github.com/OxBenji/progress-ledger/blob/main/docs/submission-format.md",
+  },
+];
+
 const brandSystem = [
   {
     title: "Mark",
@@ -406,6 +433,38 @@ export default function Home() {
                 {item.title}
               </span>
               <p>{item.body}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell draft-docs-section" aria-label="v0.1 draft documents">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">v0.1 drafts</p>
+            <h2>Tomorrow's work is already public.</h2>
+          </div>
+          <a
+            className="text-link"
+            href="https://github.com/OxBenji/progress-ledger/tree/main/docs"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View docs <ExternalLink aria-hidden="true" size={15} />
+          </a>
+        </div>
+        <div className="draft-docs-grid">
+          {draftDocs.map((doc) => (
+            <a
+              className="draft-doc-card"
+              href={doc.href}
+              key={doc.title}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>{doc.state}</span>
+              <h3>{doc.title}</h3>
+              <p>{doc.body}</p>
             </a>
           ))}
         </div>

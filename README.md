@@ -50,6 +50,13 @@ The first useful contributions are not huge code drops. They are clear thinking:
 - find real first bounties worth verifying
 - stress-test the anti-casino stance
 
+## v0.1 Drafts
+
+- [Proof receipt schema](docs/proof-receipt-schema.md)
+- [Bounty template](docs/bounty-template.md)
+- [Reviewer rubric](docs/reviewer-rubric.md)
+- [Human and agent submission format](docs/submission-format.md)
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [ROADMAP.md](ROADMAP.md).
 
 ## Local Development

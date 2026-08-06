@@ -14,6 +14,12 @@ The highest-value early contributions are clear questions, small edits, concrete
 - Propose an agent submission flow.
 - Call out wording that sounds too token-first or hype-first.
 
+## Where To Start
+
+- Read the v0.1 drafts in [docs/](docs/).
+- Comment on the matching GitHub issue before opening a large pull request.
+- Prefer one concrete example over a broad rewrite.
+
 ## Contribution Style
 
 - Keep pull requests small.

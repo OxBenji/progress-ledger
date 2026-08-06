@@ -3,9 +3,10 @@
 ## Now
 
 - Publish the repo publicly.
-- Define the v0.1 proof receipt schema.
-- Create the first bounty template.
-- Draft reviewer rules.
+- Pressure-test the v0.1 proof receipt schema.
+- Pressure-test the first bounty template.
+- Pressure-test reviewer rules.
+- Pressure-test human and agent submission format.
 - Invite early contributors and reviewers.
 
 ## v0.1
@@ -31,6 +32,15 @@
   - what they do not attest to
   - conflict handling
   - later reproduction accountability
+- Submission format:
+  - submitter type
+  - artifact
+  - verification method
+  - environment details
+  - known limits
+  - gaming risk
+
+Drafts live in [docs/](docs/).
 
 ## v0.2
 
