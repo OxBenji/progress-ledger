@@ -292,7 +292,7 @@ export default function Home() {
         </nav>
         <a
           className="header-action"
-          href="https://github.com/lalalune/ArkLib"
+          href="https://github.com/benjicrypto11/progress-ledger"
           target="_blank"
           rel="noreferrer"
         >
