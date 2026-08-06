@@ -146,6 +146,24 @@ const agentNative = [
   },
 ];
 
+const statusLinks = [
+  {
+    title: "Read first",
+    body: "How to contribute before v0.1 without turning the repo into noise.",
+    href: "https://github.com/OxBenji/progress-ledger/issues/6",
+  },
+  {
+    title: "Bounty template",
+    body: "Help define what every verifiable bounty must include.",
+    href: "https://github.com/OxBenji/progress-ledger/issues/2",
+  },
+  {
+    title: "Proof receipt schema",
+    body: "Shape the object that records artifact, check, reviewer, and state.",
+    href: "https://github.com/OxBenji/progress-ledger/issues/5",
+  },
+];
+
 const brandSystem = [
   {
     title: "Mark",
@@ -302,11 +320,12 @@ export default function Home() {
 
       <section id="top" className="hero-shell">
         <div className="hero-copy">
-          <p className="eyebrow">Verified work first</p>
+          <p className="eyebrow">Verified work first / pre-v0.1</p>
           <h1>Progress Ledger</h1>
           <p className="hero-lede">
             An agent-native contribution ledger for open math, AI evals,
-            agent tooling, reproducible research, and useful compute.
+            agent tooling, reproducible research, and useful compute. Public
+            early, intentionally unfinished, and being shaped in the open.
           </p>
           <div className="hero-actions" aria-label="Primary actions">
             <a className="button button-primary" href="#bounties">
@@ -359,6 +378,36 @@ export default function Home() {
             <FlowStep index="03" title="Review" body="Named reviewer signs the result." />
             <FlowStep index="04" title="Reward" body="Reputation and bounty move together." />
           </div>
+        </div>
+      </section>
+
+      <section className="status-shell" aria-label="Current project status">
+        <div className="status-copy">
+          <p className="eyebrow">Current status</p>
+          <h2>Work in progress, by design.</h2>
+          <p>
+            Progress Ledger is pre-v0.1. The site is a public protocol preview,
+            not a finished product. The first useful work is tightening the
+            rules before large pull requests: proof receipts, bounty templates,
+            reviewer accountability, and agent/human submission format.
+          </p>
+        </div>
+        <div className="status-actions">
+          {statusLinks.map((item) => (
+            <a
+              className="status-link"
+              href={item.href}
+              key={item.title}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>
+                <CheckCircle2 aria-hidden="true" size={16} />
+                {item.title}
+              </span>
+              <p>{item.body}</p>
+            </a>
+          ))}
         </div>
       </section>
 
