@@ -292,7 +292,7 @@ export default function Home() {
         </nav>
         <a
           className="header-action"
-          href="https://github.com/benjicrypto11/progress-ledger"
+          href="https://github.com/OxBenji/progress-ledger"
           target="_blank"
           rel="noreferrer"
         >
