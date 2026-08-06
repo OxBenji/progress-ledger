@@ -1,160 +1,103 @@
 # Bounty Template
 
-Status: Draft v0.1
+> Copy this template to create a new bounty. Fill in every section — vague bounties waste everyone's time.
 
-A Progress Ledger bounty should make useful work verifiable before anyone starts arguing about rewards.
+---
 
-Bad bounty: "Improve agent evals."
-
-Better bounty: "Create a deterministic replay harness for dataset X. The harness is accepted when command Y runs twice and returns matching scores."
-
-## Required Fields
-
-### Problem Statement
-
-What is broken, missing, or worth proving?
-
-Use one sentence and one short paragraph. Avoid vague words like "better," "robust," or "high-quality" unless they are tied to a check.
-
-### Track
-
-Choose one:
-
-- Math
-- AI Evals
-- Agents
-- Compute
-- Other
-
-### Accepted Artifact
-
-What must the submitter produce?
-
-Examples:
-
-- Merged Lean file
-- Pull request
-- Reproducible benchmark harness
-- Signed compute receipt
-- Dataset reproduction report
-- Reviewer-ready writeup
-
-### Acceptance Criteria
-
-Checklist of what must be true for the bounty to count.
-
-Each item should be checkable by a machine, reviewer, maintainer, or public replay.
-
-### Verification Method
-
-How will reviewers decide whether the work counts?
-
-Prefer:
-
-- command that exits successfully
-- replayable script
-- Lean/kernel/typecheck result
-- pinned dataset and deterministic run
-- maintainer attestation
-- signed job log or hash check
-
-Avoid:
-
-- "looks good"
-- "seems useful"
-- "high quality"
-- "community likes it"
-
-### Reviewer Requirement
-
-Who is allowed to verify this bounty?
-
-State what qualifies them: maintainer, domain expert, protocol steward, formal methods reviewer, eval steward, or infrastructure reviewer.
-
-### Reward Terms
-
-What reward is being offered, if any?
-
-Keep reward terms separate from verification. A receipt can be accepted before payment state changes.
-
-### Failure Credit
-
-Can failed work still count if it closes a false path?
-
-State:
-
-- what negative result would be useful
-- what evidence is required
-- whether credit is reputation-only, partial reward, or no reward
-
-### Out of Scope
-
-What explicitly does not count?
-
-This prevents vague submissions and scope creep.
-
-## Minimal Template
-
-```md
 ## Problem Statement
 
-## Track
+<!-- What problem exists? Be specific. Include steps to reproduce if it's a bug. -->
+
+**Current behavior:**
+
+**Expected behavior:**
+
+**Impact:** <!-- Who is affected? How severe? -->
+
+---
 
 ## Accepted Artifact
 
-## Acceptance Criteria
+<!-- What exactly must the solver deliver for this bounty to be considered complete? -->
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] **Primary deliverable:** <!-- e.g., PR merged, document published, test passing -->
+- [ ] **Format:** <!-- e.g., GitHub PR, markdown file, deployed URL -->
+- [ ] **Location:** <!-- e.g., `docs/`, `src/fixes/`, specific branch -->
+
+---
 
 ## Verification Method
 
-## Reviewer Requirement
+<!-- How will the deliverable be verified as complete and correct? -->
 
-## Reward Terms
+1. 
+2. 
+3. 
 
-## Failure Credit
+**Automated checks:** <!-- e.g., CI must pass, specific test must succeed -->
 
-## Out of Scope
-```
+**Manual checks:** <!-- e.g., reviewer confirms behavior, screenshot comparison -->
 
-## Example Bounty
+---
 
-### Problem Statement
+## Reviewer Requirements
 
-The project needs one proof receipt example that is easy for new contributors to understand and hard to fake.
+<!-- Who can review and approve this bounty? -->
 
-### Track
+- **Minimum role:** <!-- e.g., repo maintainer, designated reviewer -->
+- **Required expertise:** <!-- e.g., TypeScript, smart contracts, design -->
+- **Review SLA:** <!-- e.g., within 48 hours of submission -->
 
-Agents
+---
 
-### Accepted Artifact
+## Reward
 
-A Markdown proof receipt example added to `examples/receipts/agent-pr.md`.
+| Item | Value |
+|------|-------|
+| **Bounty amount** |  |
+| **Currency/token** |  |
+| **Payment method** | <!-- e.g., Opire, Gitcoin, direct transfer --> |
+| **Payment timing** | <!-- e.g., on merge, after verification period --> |
 
-### Acceptance Criteria
+---
 
-- The receipt includes submitter type, artifact URL, acceptance check, reviewer, verification state, and reward state.
-- The example does not mention token upside, trading, or investment language.
-- The example can be understood without knowing the whole protocol.
+## Failure Credit Rules
 
-### Verification Method
+<!-- What happens if the solver tries but doesn't fully succeed? -->
 
-Maintainer review against this checklist.
+- **Partial credit:** <!-- e.g., 30% if approach is correct but implementation needs work -->
+- **No credit if:** <!-- e.g., solution doesn't address the problem statement -->
+- **Attempt tracking:** <!-- e.g., record attempt for reputation even if unsuccessful -->
 
-### Reviewer Requirement
+---
 
-Project maintainer or protocol steward.
+## What Does NOT Count
 
-### Reward Terms
+<!-- Explicitly list what will NOT be accepted as a valid submission. -->
 
-Reputation-only in v0.1 draft.
+- ❌ 
+- ❌ 
+- ❌ 
 
-### Failure Credit
+---
 
-A rejected version can still earn discussion credit if it reveals a missing field or unclear rule.
+## Timeline
 
-### Out of Scope
+| Milestone | Date |
+|-----------|------|
+| **Bounty opens** |  |
+| **Submission deadline** |  |
+| **Review period ends** |  |
+| **Payment date** |  |
 
-No backend, wallet, escrow, or token design.
+---
+
+## Communication
+
+- **Discussion thread:** <!-- e.g., issue comments, Discord channel -->
+- **Status updates:** <!-- e.g., comment `/try` to claim, weekly check-in -->
+- **Questions:** <!-- Where to ask for clarification -->
+
+---
+
+*Bounty created by [@username] on [date]. Managed via [Opire/Gitcoin/manual].*
