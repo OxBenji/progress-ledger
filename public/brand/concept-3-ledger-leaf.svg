@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title desc">
+  <title id="title">Ledger leaf concept</title>
+  <desc id="desc">Ledger lines ending in a proof-complete square.</desc>
+  <rect width="192" height="192" fill="#FAFAF8"/>
+  <rect x="48" y="27" width="96" height="138" fill="none" stroke="#111110" stroke-width="6"/>
+  <path d="M70 54h52M70 76h52M70 98h52M70 120h29" stroke="#8B1E1E" stroke-width="4" stroke-linecap="square"/>
+  <path d="M62 27v138" stroke="#111110" stroke-width="3"/>
+  <rect x="104" y="109" width="29" height="29" fill="#111110"/>
+  <path d="M47 148l14 17M145 148l-14 17" stroke="#8B1E1E" stroke-width="4" stroke-linecap="square"/>
+</svg>

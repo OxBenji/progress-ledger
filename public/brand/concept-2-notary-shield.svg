@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title desc">
+  <title id="title">Notary shield concept</title>
+  <desc id="desc">A shield-shaped credential mark with a proof square.</desc>
+  <rect width="192" height="192" fill="#FAFAF8"/>
+  <path d="M96 27l52 20v47c0 35-21 58-52 72-31-14-52-37-52-72V47l52-20Z" fill="none" stroke="#111110" stroke-width="6" stroke-linejoin="miter"/>
+  <path d="M63 65h66M63 88h66M63 111h32" stroke="#8B1E1E" stroke-width="4" stroke-linecap="square"/>
+  <rect x="104" y="100" width="31" height="31" fill="#111110"/>
+  <path d="M82 139h28" stroke="#111110" stroke-width="5" stroke-linecap="square"/>
+</svg>

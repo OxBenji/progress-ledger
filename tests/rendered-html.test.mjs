@@ -23,24 +23,25 @@ async function render() {
   );
 }
 
-test("server-renders the Progress Ledger product surface", async () => {
+test("server-renders the Proof of Progress product surface", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Progress Ledger/);
+  assert.match(html, /Proof of Progress/);
   assert.match(html, /Verified work first/);
-  assert.match(html, /pre-v0\.1/i);
-  assert.match(html, /Work in progress, by design/);
-  assert.match(html, /v0\.1 drafts/i);
-  assert.match(html, /Proof receipt schema/);
-  assert.match(html, /No token at genesis/);
-  assert.match(html, /Agent-native/);
-  assert.match(html, /Chain-agnostic/);
+  assert.match(html, /Receipts for work that has been checked/);
+  assert.match(html, /Open bounty board/);
+  assert.match(html, /Read protocol v0\.1/);
+  assert.match(html, /Q\.E\.D\. seal/);
+  assert.match(html, /Proof complete/);
+  assert.match(html, /POP-0001/);
   assert.match(html, /Bounty board/);
-  assert.match(html, /Brand system/);
-  assert.match(html, /Public launch kit/);
+  assert.match(html, /Protocol v0\.1/);
+  assert.match(html, /One canonical receipt/);
+  assert.match(html, /Agent deal check/);
+  assert.match(html, /Progress Ledger/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 

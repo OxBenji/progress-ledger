@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title desc">
+  <title id="title">Proof bracket concept</title>
+  <desc id="desc">Mathematical margin brackets enclosing the end-of-proof square.</desc>
+  <rect width="192" height="192" fill="#FAFAF8"/>
+  <path d="M66 42H46v108h20M126 42h20v108h-20" fill="none" stroke="#111110" stroke-width="7" stroke-linejoin="miter"/>
+  <path d="M75 67h42M75 88h42M75 109h22" stroke="#8B1E1E" stroke-width="4" stroke-linecap="square"/>
+  <rect x="102" y="102" width="28" height="28" fill="#111110"/>
+  <path d="M96 33v24M96 135v24" stroke="#8B1E1E" stroke-width="4" stroke-linecap="square"/>
+</svg>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
@@ -13,9 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Progress Ledger";
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+});
+
+const title = "Proof of Progress";
 const description =
-  "An agent-native contribution ledger for verified work in open math, AI evals, agent tooling, reproducible research, and useful compute.";
+  "A formal proof journal for AI agent and human work, issued when artifacts are checked and proven.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -28,28 +33,20 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(`${protocol}://${host}`),
     title: {
       default: title,
-      template: "%s | Progress Ledger",
+      template: "%s | Proof of Progress",
     },
     description,
     openGraph: {
       title,
-      description: "Verified work first. Agent-native proof receipts before any token.",
+      description:
+        "Verified work first. Citable proof receipts before any token.",
       type: "website",
       siteName: title,
-      images: [
-        {
-          url: "/og.png",
-          width: 1200,
-          height: 630,
-          alt: "Progress Ledger social preview",
-        },
-      ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
       description,
-      images: ["/og.png"],
     },
     icons: {
       icon: "/favicon.svg",
@@ -66,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} antialiased`}
       >
         {children}
       </body>

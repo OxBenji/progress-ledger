@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 144" role="img" aria-labelledby="title desc">
+  <title id="title">Proof of Progress wordmark</title>
+  <desc id="desc">Proof of Progress wordmark lockup with the proof seal.</desc>
+  <rect width="560" height="144" fill="#FAFAF8"/>
+  <g transform="translate(16 16)">
+    <circle cx="56" cy="56" r="39" fill="none" stroke="#111110" stroke-width="5"/>
+    <circle cx="56" cy="56" r="29" fill="none" stroke="#8B1E1E" stroke-width="3"/>
+    <path d="M56 10v11M56 91v11M10 56h11M91 56h11M28 28l8 8M76 76l8 8M84 28l-8 8M36 76l-8 8" stroke="#8B1E1E" stroke-width="3.5" stroke-linecap="square"/>
+    <rect x="44" y="44" width="24" height="24" fill="#111110"/>
+    <rect x="52" y="52" width="8" height="8" fill="#FAFAF8"/>
+    <rect x="55" y="55" width="2" height="2" fill="#8B1E1E"/>
+  </g>
+  <text x="145" y="72" fill="#111110" font-family="Newsreader, 'Source Serif 4', Georgia, serif" font-size="42" font-weight="700" letter-spacing="0">Proof of Progress</text>
+  <text x="148" y="101" fill="#8B1E1E" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="3">VERIFIED WORK FIRST</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Proof of Progress accent mark</title>
+  <desc id="desc">Single-color proof seal in proof red.</desc>
+  <circle cx="64" cy="64" r="45" fill="none" stroke="#8B1E1E" stroke-width="6"/>
+  <circle cx="64" cy="64" r="34" fill="none" stroke="#8B1E1E" stroke-width="3"/>
+  <path d="M64 12v12M64 104v12M12 64h12M104 64h12M32 32l9 9M87 87l9 9M96 32l-9 9M41 87l-9 9" stroke="#8B1E1E" stroke-width="4" stroke-linecap="square"/>
+  <rect x="50" y="50" width="28" height="28" fill="#8B1E1E"/>
+</svg>
