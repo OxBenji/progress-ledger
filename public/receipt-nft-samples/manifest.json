@@ -16,5 +16,11 @@
     "task_type": "Agent task",
     "file": "/receipt-nft-samples/pop-0103-agent-task.svg",
     "data_uri_prefix": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20w"
+  },
+  {
+    "receipt_id": "POP-0104",
+    "task_type": "Milestone",
+    "file": "/receipt-nft-samples/pop-0104-milestone.svg",
+    "data_uri_prefix": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20w"
   }
 ]

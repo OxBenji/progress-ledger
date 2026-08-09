@@ -38,8 +38,9 @@ test("server-renders the Proof of Progress product surface", async () => {
   assert.match(html, /Proof complete/);
   assert.match(html, /POP-0001/);
   assert.match(html, /Token image renderer/);
-  assert.match(html, /The NFT image is the receipt/);
+  assert.match(html, /Four receipt-native NFT design families/);
   assert.match(html, /POP-0102/);
+  assert.match(html, /POP-0104/);
   assert.match(html, /Bounty board/);
   assert.match(html, /Protocol v0\.1/);
   assert.match(html, /One canonical receipt/);

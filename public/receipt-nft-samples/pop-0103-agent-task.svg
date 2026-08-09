@@ -14,6 +14,8 @@
     .fact-mono{font-family:Consolas,'Liberation Mono',Menlo,monospace;font-size:18px;fill:#111110}
     .badge-text{font-size:17px}
     .sbt-text{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:800;letter-spacing:1.2px;fill:#827B70}
+    .design-label{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:800;letter-spacing:4px;fill:#8B1E1E}
+    .design-note{font-family:Arial,Helvetica,sans-serif;font-size:21px;font-weight:700;fill:#111110}
     .stamp-small{font-size:18px}
     .footer-value{font-size:20px}
   </style>
@@ -25,13 +27,13 @@
     <rect x="59" y="59" width="10" height="10" fill="#FAFAF8"/>
     <rect x="62" y="62" width="4" height="4" fill="#8B1E1E"/>
   </g>
-  <line x1="91" y1="210" x2="191" y2="210" stroke="#DDD" stroke-width="2"/><text x="196" y="130" class="wordmark">Proof of Progress</text><text x="196" y="165" class="eyebrow">VERIFIED WORK FIRST</text><text x="104" y="235" class="mono id">POP-0103</text><g>
+  <line x1="91" y1="210" x2="191" y2="210" stroke="#DDD" stroke-width="2"/><text x="196" y="130" class="wordmark">Proof of Progress</text><text x="196" y="165" class="eyebrow">VERIFIED WORK FIRST</text><text x="104" y="235" class="mono id">POP-0103</text><text x="104" y="278" class="design-label">AGENT WORK RECEIPT</text><g>
     <rect x="754" y="200" width="142" height="48" fill="none" stroke="#8B1E1E" stroke-width="2"/>
     <text x="825" y="231" class="badge-text" fill="#8B1E1E" text-anchor="middle">PROVEN</text>
   </g><g>
-    <rect x="626" y="268" width="270" height="45" fill="none" stroke="#111110" stroke-width="1.5"/>
-    <text x="643" y="297" class="mono" font-size="18">SBT</text>
-    <text x="691" y="297" class="sbt-text">NON-TRANSFERABLE</text>
+    <rect x="626" y="128" width="270" height="45" fill="none" stroke="#111110" stroke-width="1.5"/>
+    <text x="643" y="157" class="mono" font-size="18">SBT</text>
+    <text x="691" y="157" class="sbt-text">NON-TRANSFERABLE</text>
   </g><text x="104" y="332" class="artifact" font-size="48"><tspan x="104" dy="0">Agent-created pull</tspan><tspan x="104" dy="46">request for receipt</tspan><tspan x="104" dy="46">metadata validation</tspan><tspan x="104" dy="46">and bounty template</tspan><tspan x="104" dy="46">checks</tspan></text><g>
     <g>
     <rect x="104" y="529" width="396" height="118" fill="#FAFAF8" fill-opacity="0.82" stroke="#DDD" stroke-width="1.5"/>
@@ -53,6 +55,17 @@
     <text x="524" y="685" class="label">HASH</text>
     <text x="524" y="725" class="fact-mono" ><tspan x="524" dy="0">sha256:bb0928f0a61f474e3a817c2</tspan><tspan x="524" dy="28">c30f725f4a86997de58ec31701b...</tspan></text>
   </g>
+  </g><g>
+    <rect x="104" y="784" width="432" height="82" fill="#FAFAF8" fill-opacity="0.74" stroke="#DDD" stroke-width="1.5"/>
+    <text x="128" y="815" class="label">AGENT ATTESTED</text>
+    <text x="128" y="845" class="design-note">Maintainer reviewed</text>
+    <g>
+      <rect x="426" y="803" width="24" height="24" fill="none" stroke="#111110" stroke-width="3"/>
+      <rect x="490" y="803" width="24" height="24" fill="none" stroke="#111110" stroke-width="3"/>
+      <rect x="458" y="835" width="24" height="24" fill="#111110"/>
+      <path d="M450 827l13 13M490 827L477 840" stroke="#8B1E1E" stroke-width="3"/>
+      <path d="M438 869h64" stroke="#8B1E1E" stroke-width="3"/>
+    </g>
   </g><g transform="rotate(-3 768 822)">
     <rect x="640" y="770" width="256" height="104" fill="none" stroke="#8B1E1E" stroke-width="3"/>
     <rect x="650" y="780" width="236" height="84" fill="none" stroke="#8B1E1E" stroke-width="1.5"/>

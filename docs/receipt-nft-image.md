@@ -18,6 +18,7 @@ const receipt = {
   verifier: "mathlib reviewer",
   hash: "sha256:7d9140eaa278f9313f2c9b54a5cb086163d9a4d59ae5e9ddfe0bb2a0",
   status: "Proven",
+  design: "math-proof",
 };
 
 const svg = renderReceiptNftSvg(receipt);
@@ -28,6 +29,14 @@ The renderer outputs a square `1000x1000` SVG with no external image or font
 dependencies. It uses system-safe font stacks, the Proof of Progress Q.E.D.
 seal, proof-red stamp treatment, receipt ID, artifact, check, verifier, hash,
 and visible `SBT / NON-TRANSFERABLE` markers.
+
+Design profiles:
+
+- `math-proof`: formal proof / kernel-checked receipt
+- `code-eval`: deterministic replay / eval evidence receipt
+- `agent-task`: maintainer-reviewed agent work receipt
+- `milestone`: threshold-crossed milestone receipt
+- `standard`: fallback receipt design
 
 Sample renders are generated with:
 

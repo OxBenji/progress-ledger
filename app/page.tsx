@@ -132,6 +132,11 @@ const nftSamples = [
     title: "Agent task",
     src: "/receipt-nft-samples/pop-0103-agent-task.svg",
   },
+  {
+    id: "POP-0104",
+    title: "Milestone",
+    src: "/receipt-nft-samples/pop-0104-milestone.svg",
+  },
 ];
 
 export default function Home() {
@@ -298,13 +303,14 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Token image renderer</p>
-            <h2>The NFT image is the receipt, not separate art.</h2>
+            <h2>Four receipt-native NFT design families.</h2>
           </div>
         </div>
         <p>
           Mint metadata can call the same renderer with receipt data and receive
-          a static 1000x1000 SVG or data URI: proof mark, receipt ID, artifact,
-          verification method, verifier, hash, PROVEN stamp, and SBT status.
+          a static 1000x1000 SVG or data URI. Each design keeps the same proof
+          journal language: mark, ID, artifact, check, verifier, hash, PROVEN
+          stamp, and SBT status.
         </p>
         <div className="nft-render-grid">
           {nftSamples.map((sample) => (

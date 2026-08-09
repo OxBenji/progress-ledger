@@ -14,6 +14,7 @@ test("renders a static square SVG receipt NFT image", () => {
     verifier: "reviewer@example.test",
     hash: "sha256:abc123",
     status: "Proven",
+    design: "agent-task",
   });
 
   assert.match(svg, /^<svg /);
@@ -24,6 +25,8 @@ test("renders a static square SVG receipt NFT image", () => {
   assert.match(svg, /PROOF COMPLETE/);
   assert.match(svg, /NON-TRANSFERABLE/);
   assert.match(svg, /SBT/);
+  assert.match(svg, /AGENT WORK RECEIPT/);
+  assert.match(svg, /AGENT ATTESTED/);
   assert.match(svg, /Proof of Progress/);
   assert.match(svg, /Agent proof &lt;must&gt;/);
   assert.doesNotMatch(svg, /<must>/);
