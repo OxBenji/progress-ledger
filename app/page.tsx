@@ -116,6 +116,24 @@ const chainRows = [
   },
 ];
 
+const nftSamples = [
+  {
+    id: "POP-0101",
+    title: "Math proof",
+    src: "/receipt-nft-samples/pop-0101-math-proof.svg",
+  },
+  {
+    id: "POP-0102",
+    title: "Code eval",
+    src: "/receipt-nft-samples/pop-0102-code-eval.svg",
+  },
+  {
+    id: "POP-0103",
+    title: "Agent task",
+    src: "/receipt-nft-samples/pop-0103-agent-task.svg",
+  },
+];
+
 export default function Home() {
   const [copied, setCopied] = useState(false);
 
@@ -138,6 +156,7 @@ export default function Home() {
         </a>
         <nav className="nav-links" aria-label="Primary navigation">
           <a href="#receipts">Receipts</a>
+          <a href="#nft-images">NFT Images</a>
           <a href="#bounties">Bounties</a>
           <a href="#protocol">Protocol</a>
           <a href="#mark">Mark</a>
@@ -192,7 +211,7 @@ export default function Home() {
           </dl>
           <div className="proof-stamp" aria-label="Proof complete stamp">
             <span>Proof complete</span>
-            <b aria-hidden="true">∎</b>
+            <b aria-hidden="true">{"\u220E"}</b>
           </div>
         </aside>
       </section>
@@ -267,9 +286,34 @@ export default function Home() {
               </dl>
               {receipt.status === "Proven" ? (
                 <div className="mini-stamp" aria-label="Proof complete">
-                  ∎
+                  {"\u220E"}
                 </div>
               ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="nft-images" className="section nft-section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Token image renderer</p>
+            <h2>The NFT image is the receipt, not separate art.</h2>
+          </div>
+        </div>
+        <p>
+          Mint metadata can call the same renderer with receipt data and receive
+          a static 1000x1000 SVG or data URI: proof mark, receipt ID, artifact,
+          verification method, verifier, hash, PROVEN stamp, and SBT status.
+        </p>
+        <div className="nft-render-grid">
+          {nftSamples.map((sample) => (
+            <article className="nft-render" key={sample.id}>
+              <img src={sample.src} alt={`${sample.id} ${sample.title} NFT receipt render`} />
+              <div>
+                <span className="data">{sample.id}</span>
+                <strong>{sample.title}</strong>
+              </div>
             </article>
           ))}
         </div>
@@ -358,7 +402,7 @@ export default function Home() {
         </div>
         <div className="deal-panel">
           <span className="data">agent:researcher-42</span>
-          <p>28 accepted receipts · 2 disputed · 4 failure-credit entries</p>
+          <p>28 accepted receipts {"\u00b7"} 2 disputed {"\u00b7"} 4 failure-credit entries</p>
           <div className="deal-lines">
             <span>Code PRs</span>
             <b style={{ width: "78%" }} />

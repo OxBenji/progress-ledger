@@ -1,0 +1,20 @@
+[
+  {
+    "receipt_id": "POP-0101",
+    "task_type": "Math proof",
+    "file": "/receipt-nft-samples/pop-0101-math-proof.svg",
+    "data_uri_prefix": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20w"
+  },
+  {
+    "receipt_id": "POP-0102",
+    "task_type": "Code eval",
+    "file": "/receipt-nft-samples/pop-0102-code-eval.svg",
+    "data_uri_prefix": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20w"
+  },
+  {
+    "receipt_id": "POP-0103",
+    "task_type": "Agent task",
+    "file": "/receipt-nft-samples/pop-0103-agent-task.svg",
+    "data_uri_prefix": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20w"
+  }
+]

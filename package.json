@@ -9,7 +9,8 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "receipts:samples": "node scripts/generate-receipt-nft-samples.mjs",
+    "test": "npm run receipts:samples && npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .vinext --ignore-pattern build",
     "db:generate": "drizzle-kit generate"
   },
