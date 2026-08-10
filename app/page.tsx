@@ -160,6 +160,69 @@ const milestoneMarks = [
   },
 ];
 
+const milestoneUnlocks = [
+  {
+    code: "MS-01",
+    tier: "Base Medallion",
+    unlock: "First Proof Bundle",
+    requirement:
+      "3 accepted receipts in one domain, at least 2 distinct artifacts, 1 independent verifier, and no open disputes.",
+    proves:
+      "The contributor or agent can submit work that survives a repeatable check.",
+    not: "No payout claim, governance right, revenue share, or investment promise.",
+  },
+  {
+    code: "MS-02",
+    tier: "Verified Contributor",
+    unlock: "Repeat Accepted Work",
+    requirement:
+      "25 accepted receipts or 10 high-signal receipts across 2 domains, 3 independent verifiers, and at least 2 accepted bounty closures.",
+    proves:
+      "The contributor or agent has a pattern of useful verified output, not one lucky artifact.",
+    not: "Not a skill guarantee, not transferable reputation, and not a shortcut around review.",
+  },
+  {
+    code: "MS-03",
+    tier: "Top Verifier",
+    unlock: "Trusted Review Authority",
+    requirement:
+      "15 accepted reviews, 10 later confirmed by repeat checks, 5 distinct contributors reviewed, and no unresolved conflict reversals.",
+    proves:
+      "The reviewer can judge bounded claims reliably enough for others to route work through them.",
+    not: "Not permanent status. A dispute, conflict pattern, or failed audit can pause future mints.",
+  },
+];
+
+const milestoneGuardrails = [
+  "Milestones only mint from accepted Tier 1 receipts, never from social proof.",
+  "Every counted receipt needs an artifact hash, verification method, verifier attestation, and dispute window.",
+  "Recognition milestones stay separate from payout or revenue-share claims.",
+  "Agents and humans qualify through the same receipt math.",
+];
+
+const innovationMoves = [
+  {
+    title: "Agent proof passport",
+    detail:
+      "A signed bundle that an agent can present before a deal: accepted receipts, verifier graph, disputes, and failure-credit history.",
+  },
+  {
+    title: "Verifier-weighted reputation",
+    detail:
+      "Reputation increases when independent checks keep confirming the work and decreases when reviews get overturned.",
+  },
+  {
+    title: "Cross-chain witness layer",
+    detail:
+      "One canonical receipt hash can be mirrored on Robinhood Chain, Solana, and EVM networks without fragmenting the proof record.",
+  },
+  {
+    title: "Escrowed claim path",
+    detail:
+      "Any future value-bearing token should point to a specific funded bounty or escrowed payout and burn on redemption.",
+  },
+];
+
 export default function Home() {
   const [copied, setCopied] = useState(false);
 
@@ -184,6 +247,7 @@ export default function Home() {
           <a href="#receipts">Receipts</a>
           <a href="#nft-images">NFT Images</a>
           <a href="#milestones">Milestones</a>
+          <a href="#unlocks">Unlocks</a>
           <a href="#bounties">Bounties</a>
           <a href="#protocol">Protocol</a>
           <a href="#mark">Mark</a>
@@ -369,6 +433,66 @@ export default function Home() {
                 <strong>{mark.title}</strong>
                 <p>{mark.note}</p>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="unlocks" className="section unlock-section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Unlock rules</p>
+            <h2>Not collectibles first. Verified thresholds first.</h2>
+          </div>
+        </div>
+        <p>
+          Tier 2 marks are rare because the receipt graph unlocks them. The art
+          is a signal on top of the record; it does not replace the record.
+        </p>
+        <div className="unlock-table">
+          {milestoneUnlocks.map((item) => (
+            <article className="unlock-row" key={item.code}>
+              <div>
+                <span className="data">{item.code}</span>
+                <h3>{item.tier}</h3>
+                <p>{item.unlock}</p>
+              </div>
+              <dl>
+                <div>
+                  <dt>Unlock requirement</dt>
+                  <dd>{item.requirement}</dd>
+                </div>
+                <div>
+                  <dt>What it proves</dt>
+                  <dd>{item.proves}</dd>
+                </div>
+                <div>
+                  <dt>What it does not promise</dt>
+                  <dd>{item.not}</dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+        <div className="guardrail-panel" aria-label="Milestone guardrails">
+          {milestoneGuardrails.map((rule) => (
+            <p key={rule}>{rule}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="section innovation-section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Next level</p>
+            <h2>Make proof useful before money enters the room.</h2>
+          </div>
+        </div>
+        <div className="innovation-grid">
+          {innovationMoves.map((move) => (
+            <article className="innovation-card" key={move.title}>
+              <h3>{move.title}</h3>
+              <p>{move.detail}</p>
             </article>
           ))}
         </div>

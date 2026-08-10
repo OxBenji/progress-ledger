@@ -594,6 +594,96 @@ dd {
   font-size: 14px;
 }
 
+.unlock-section > p {
+  max-width: 760px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.unlock-table {
+  border-top: 1px solid var(--rule-strong);
+}
+
+.unlock-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.42fr) minmax(0, 1fr);
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.unlock-row > div:first-child {
+  min-width: 0;
+}
+
+.unlock-row h3 {
+  margin: 8px 0 7px;
+  font-size: 26px;
+}
+
+.unlock-row > div:first-child p {
+  margin-bottom: 0;
+  color: var(--proof-red);
+  font-size: 13px;
+  font-variant-caps: all-small-caps;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+}
+
+.unlock-row dl {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr 0.95fr;
+  gap: 22px;
+  margin: 0;
+}
+
+.unlock-row dl div {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.guardrail-panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 22px;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.guardrail-panel p {
+  min-height: 112px;
+  margin: 0;
+  padding: 16px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.innovation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule-strong);
+  border-left: 1px solid var(--rule);
+}
+
+.innovation-card {
+  min-width: 0;
+  padding: 20px 18px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.innovation-card h3 {
+  font-size: 24px;
+}
+
+.innovation-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
 .receipt-row {
   position: relative;
   display: grid;
@@ -853,6 +943,17 @@ dd {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .unlock-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .unlock-row dl,
+  .guardrail-panel,
+  .innovation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .recommendation {
     grid-template-columns: 1fr;
   }
@@ -928,6 +1029,9 @@ dd {
   .concept-grid,
   .nft-render-grid,
   .milestone-grid,
+  .unlock-row dl,
+  .guardrail-panel,
+  .innovation-grid,
   .receipt-row,
   .receipt-row dl,
   .bounty,

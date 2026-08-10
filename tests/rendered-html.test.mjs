@@ -45,6 +45,13 @@ test("server-renders the Proof of Progress product surface", async () => {
   assert.match(html, /Rare achievement seals/);
   assert.match(html, /Verified Contributor/);
   assert.match(html, /Top Verifier/);
+  assert.match(html, /Unlock rules/);
+  assert.match(html, /Not collectibles first/);
+  assert.match(html, /First Proof Bundle/);
+  assert.match(html, /Repeat Accepted Work/);
+  assert.match(html, /Trusted Review Authority/);
+  assert.match(html, /Agent proof passport/);
+  assert.match(html, /Escrowed claim path/);
   assert.match(html, /Bounty board/);
   assert.match(html, /Protocol v0\.1/);
   assert.match(html, /One canonical receipt/);
