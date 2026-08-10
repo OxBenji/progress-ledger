@@ -27,7 +27,7 @@ export default function MilestonesPage() {
           {milestoneMarks.map((mark) => (
             <article className="milestone-card" key={mark.id}>
               <a href={mark.full} target="_blank" rel="noreferrer" aria-label={`Open full resolution ${mark.title} art`}>
-                <Image src={mark.src} alt={`${mark.title} medallion mark`} width={900} height={900} />
+                <Image src={mark.src} alt={`${mark.title} medallion mark`} width={900} height={900} priority />
               </a>
               <div>
                 <span className="data">{mark.id}</span>
