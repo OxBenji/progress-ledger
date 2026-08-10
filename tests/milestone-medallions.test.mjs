@@ -9,9 +9,9 @@ const files = [
 ];
 
 const artworkFiles = [
-  "medallion-base-art.png",
-  "milestone-verified-contributor-art.png",
-  "milestone-top-verifier-art.png",
+  "medallion-base-art-v2.png",
+  "milestone-verified-contributor-art-v2.png",
+  "milestone-top-verifier-art-v2.png",
 ];
 
 test("milestone medallions are text-free flat SVGs", async () => {

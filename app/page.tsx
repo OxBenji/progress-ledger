@@ -143,20 +143,20 @@ const milestoneMarks = [
   {
     id: "base",
     title: "Base medallion",
-    src: "/milestones/medallion-base-art.png",
-    note: "Wax-seal proof object with archival ink texture.",
+    src: "/milestones/medallion-base-art-v2.png",
+    note: "Restrained official proof medal with sparse verification ticks.",
   },
   {
     id: "verified-contributor",
     title: "Verified Contributor",
-    src: "/milestones/milestone-verified-contributor-art.png",
-    note: "Receipt-node evidence graph for repeat verified work.",
+    src: "/milestones/milestone-verified-contributor-art-v2.png",
+    note: "Ledger receipt panels and witness nodes for repeat verified work.",
   },
   {
     id: "top-verifier",
     title: "Top Verifier",
-    src: "/milestones/milestone-top-verifier-art.png",
-    note: "Precision audit compass for rare verifier authority.",
+    src: "/milestones/milestone-top-verifier-art-v2.png",
+    note: "Calibrated audit gates for rare verifier authority.",
   },
 ];
 
