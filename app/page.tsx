@@ -143,20 +143,20 @@ const milestoneMarks = [
   {
     id: "base",
     title: "Base medallion",
-    src: "/milestones/medallion-base.svg",
-    note: "Shared geometry for rare achievement tokens.",
+    src: "/milestones/medallion-base-art.png",
+    note: "Wax-seal proof object with archival ink texture.",
   },
   {
     id: "verified-contributor",
     title: "Verified Contributor",
-    src: "/milestones/milestone-verified-contributor.svg",
-    note: "Tier-one threshold mark with a single proof-red laurel.",
+    src: "/milestones/milestone-verified-contributor-art.png",
+    note: "Receipt-node evidence graph for repeat verified work.",
   },
   {
     id: "top-verifier",
     title: "Top Verifier",
-    src: "/milestones/milestone-top-verifier.svg",
-    note: "Higher-tier mark with double proof rings and fuller laurel work.",
+    src: "/milestones/milestone-top-verifier-art.png",
+    note: "Precision audit compass for rare verifier authority.",
   },
 ];
 
@@ -356,8 +356,9 @@ export default function Home() {
         </div>
         <p>
           Milestone token art stays text-free. Metadata supplies the tier name;
-          the image supplies the formal seal family: concentric rings, compass
-          ticks, the Q.E.D. square, and proof-red achievement details.
+          the image supplies the collectible object: textured paper, stamped
+          ink, proof-red witness marks, and a Q.E.D. structure that changes by
+          achievement tier.
         </p>
         <div className="milestone-grid">
           {milestoneMarks.map((mark) => (

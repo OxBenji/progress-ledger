@@ -542,10 +542,7 @@ dd {
   grid-template-rows: auto 1fr;
   border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  background:
-    linear-gradient(90deg, rgba(17, 17, 16, 0.028) 1px, transparent 1px),
-    var(--paper);
-  background-size: 34px 34px;
+  background: var(--paper);
 }
 
 .nft-render img {
@@ -557,10 +554,9 @@ dd {
 
 .milestone-card img {
   display: block;
-  width: min(100%, 360px);
+  width: 100%;
   aspect-ratio: 1;
-  margin: 0 auto;
-  padding: clamp(18px, 3.3vw, 34px);
+  object-fit: cover;
   border-bottom: 1px solid var(--rule);
 }
 
