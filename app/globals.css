@@ -508,10 +508,24 @@ dd {
   font-size: 18px;
 }
 
+.milestone-section > p {
+  max-width: 790px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
 .nft-render-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--rule-strong);
   border-left: 1px solid var(--rule);
 }
 
@@ -522,10 +536,31 @@ dd {
   background: var(--paper);
 }
 
+.milestone-card {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: auto 1fr;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background:
+    linear-gradient(90deg, rgba(17, 17, 16, 0.028) 1px, transparent 1px),
+    var(--paper);
+  background-size: 34px 34px;
+}
+
 .nft-render img {
   display: block;
   width: 100%;
   aspect-ratio: 1;
+  border-bottom: 1px solid var(--rule);
+}
+
+.milestone-card img {
+  display: block;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: clamp(18px, 3.3vw, 34px);
   border-bottom: 1px solid var(--rule);
 }
 
@@ -538,9 +573,29 @@ dd {
   padding: 0 16px;
 }
 
+.milestone-card div {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-height: 136px;
+  padding: 17px 18px 20px;
+}
+
 .nft-render strong {
   font-family: "Newsreader", Georgia, serif;
   font-size: 21px;
+}
+
+.milestone-card strong {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 24px;
+  line-height: 1.05;
+}
+
+.milestone-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .receipt-row {
@@ -798,6 +853,10 @@ dd {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .milestone-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .recommendation {
     grid-template-columns: 1fr;
   }
@@ -872,6 +931,7 @@ dd {
 
   .concept-grid,
   .nft-render-grid,
+  .milestone-grid,
   .receipt-row,
   .receipt-row dl,
   .bounty,

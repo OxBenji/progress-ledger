@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Verified Contributor milestone medallion</title>
+  <desc id="desc">A text-free tier-one Proof of Progress milestone medallion with a single red laurel detail.</desc>
+  <rect width="1000" height="1000" fill="#FAFAF8"/>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <circle cx="500" cy="500" r="386" stroke="#111110" stroke-width="14"/>
+    <circle cx="500" cy="500" r="347" stroke="#8B1E1E" stroke-width="7"/>
+    <circle cx="500" cy="500" r="303" stroke="#111110" stroke-width="4"/>
+    <circle cx="500" cy="500" r="226" stroke="#DDD" stroke-width="3"/>
+    <path d="M500 68v92M500 840v92M68 500h92M840 500h92" stroke="#111110" stroke-width="14"/>
+    <path d="M197 197l64 64M739 739l64 64M803 197l-64 64M261 739l-64 64" stroke="#8B1E1E" stroke-width="10"/>
+    <path d="M244 649c-54-92-55-208-2-301M756 649c54-92 55-208 2-301" stroke="#8B1E1E" stroke-width="9"/>
+    <path d="M228 610l42-11M215 564l45-1M212 516l45 8M217 468l43 16M230 423l39 24M244 390l35 30" stroke="#8B1E1E" stroke-width="7"/>
+    <path d="M772 610l-42-11M785 564l-45-1M788 516l-45 8M783 468l-43 16M770 423l-39 24M756 390l-35 30" stroke="#8B1E1E" stroke-width="7"/>
+    <path d="M500 214v54M500 732v54M214 500h54M732 500h54" stroke="#8B1E1E" stroke-width="7"/>
+  </g>
+  <g>
+    <rect x="378" y="378" width="244" height="244" fill="#111110"/>
+    <rect x="443" y="443" width="114" height="114" fill="#FAFAF8"/>
+    <rect x="474" y="474" width="52" height="52" fill="#8B1E1E"/>
+  </g>
+  <g fill="#111110">
+    <rect x="492" y="112" width="16" height="42"/>
+    <rect x="492" y="846" width="16" height="42"/>
+    <rect x="112" y="492" width="42" height="16"/>
+    <rect x="846" y="492" width="42" height="16"/>
+  </g>
+</svg>

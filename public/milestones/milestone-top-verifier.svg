@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Top Verifier milestone medallion</title>
+  <desc id="desc">A text-free higher-tier Proof of Progress milestone medallion with double ring and red laurel details.</desc>
+  <rect width="1000" height="1000" fill="#FAFAF8"/>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <circle cx="500" cy="500" r="394" stroke="#111110" stroke-width="14"/>
+    <circle cx="500" cy="500" r="364" stroke="#8B1E1E" stroke-width="7"/>
+    <circle cx="500" cy="500" r="334" stroke="#8B1E1E" stroke-width="5"/>
+    <circle cx="500" cy="500" r="292" stroke="#111110" stroke-width="4"/>
+    <circle cx="500" cy="500" r="220" stroke="#DDD" stroke-width="3"/>
+    <path d="M500 58v104M500 838v104M58 500h104M838 500h104" stroke="#111110" stroke-width="15"/>
+    <path d="M186 186l76 76M738 738l76 76M814 186l-76 76M262 738l-76 76" stroke="#8B1E1E" stroke-width="11"/>
+    <path d="M235 663c-62-99-63-227-2-326M765 663c62-99 63-227 2-326" stroke="#8B1E1E" stroke-width="9"/>
+    <path d="M274 636c-42-82-42-190 0-272M726 636c42-82 42-190 0-272" stroke="#111110" stroke-width="6"/>
+    <path d="M214 618l50-13M199 568l54-2M195 516l54 8M202 464l51 18M217 415l47 27M235 374l41 35" stroke="#8B1E1E" stroke-width="8"/>
+    <path d="M786 618l-50-13M801 568l-54-2M805 516l-54 8M798 464l-51 18M783 415l-47 27M765 374l-41 35" stroke="#8B1E1E" stroke-width="8"/>
+    <path d="M500 194v66M500 740v66M194 500h66M740 500h66" stroke="#8B1E1E" stroke-width="8"/>
+    <path d="M306 306l46 46M648 648l46 46M694 306l-46 46M352 648l-46 46" stroke="#111110" stroke-width="6"/>
+  </g>
+  <g>
+    <rect x="371" y="371" width="258" height="258" fill="#111110"/>
+    <rect x="435" y="435" width="130" height="130" fill="#FAFAF8"/>
+    <rect x="469" y="469" width="62" height="62" fill="#8B1E1E"/>
+    <rect x="487" y="487" width="26" height="26" fill="#111110"/>
+  </g>
+  <g fill="#8B1E1E">
+    <rect x="490" y="91" width="20" height="52"/>
+    <rect x="490" y="857" width="20" height="52"/>
+    <rect x="91" y="490" width="52" height="20"/>
+    <rect x="857" y="490" width="52" height="20"/>
+    <rect x="237" y="237" width="38" height="10" transform="rotate(45 256 242)"/>
+    <rect x="725" y="237" width="38" height="10" transform="rotate(-45 744 242)"/>
+    <rect x="237" y="753" width="38" height="10" transform="rotate(-45 256 758)"/>
+    <rect x="725" y="753" width="38" height="10" transform="rotate(45 744 758)"/>
+  </g>
+</svg>

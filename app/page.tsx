@@ -139,6 +139,27 @@ const nftSamples = [
   },
 ];
 
+const milestoneMarks = [
+  {
+    id: "base",
+    title: "Base medallion",
+    src: "/milestones/medallion-base.svg",
+    note: "Shared geometry for rare achievement tokens.",
+  },
+  {
+    id: "verified-contributor",
+    title: "Verified Contributor",
+    src: "/milestones/milestone-verified-contributor.svg",
+    note: "Tier-one threshold mark with a single proof-red laurel.",
+  },
+  {
+    id: "top-verifier",
+    title: "Top Verifier",
+    src: "/milestones/milestone-top-verifier.svg",
+    note: "Higher-tier mark with double proof rings and fuller laurel work.",
+  },
+];
+
 export default function Home() {
   const [copied, setCopied] = useState(false);
 
@@ -162,6 +183,7 @@ export default function Home() {
         <nav className="nav-links" aria-label="Primary navigation">
           <a href="#receipts">Receipts</a>
           <a href="#nft-images">NFT Images</a>
+          <a href="#milestones">Milestones</a>
           <a href="#bounties">Bounties</a>
           <a href="#protocol">Protocol</a>
           <a href="#mark">Mark</a>
@@ -319,6 +341,32 @@ export default function Home() {
               <div>
                 <span className="data">{sample.id}</span>
                 <strong>{sample.title}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="milestones" className="section milestone-section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Milestone marks</p>
+            <h2>Rare achievement seals, same proof language.</h2>
+          </div>
+        </div>
+        <p>
+          Milestone token art stays text-free. Metadata supplies the tier name;
+          the image supplies the formal seal family: concentric rings, compass
+          ticks, the Q.E.D. square, and proof-red achievement details.
+        </p>
+        <div className="milestone-grid">
+          {milestoneMarks.map((mark) => (
+            <article className="milestone-card" key={mark.id}>
+              <img src={mark.src} alt={`${mark.title} medallion mark`} />
+              <div>
+                <span className="data">{mark.id}</span>
+                <strong>{mark.title}</strong>
+                <p>{mark.note}</p>
               </div>
             </article>
           ))}

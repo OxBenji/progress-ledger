@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Proof of Progress base medallion</title>
+  <desc id="desc">A text-free circular Q.E.D. medallion mark for milestone tokens.</desc>
+  <rect width="1000" height="1000" fill="#FAFAF8"/>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <circle cx="500" cy="500" r="382" stroke="#111110" stroke-width="14"/>
+    <circle cx="500" cy="500" r="338" stroke="#8B1E1E" stroke-width="7"/>
+    <circle cx="500" cy="500" r="292" stroke="#111110" stroke-width="4"/>
+    <circle cx="500" cy="500" r="214" stroke="#DDD" stroke-width="3"/>
+    <path d="M500 72v88M500 840v88M72 500h88M840 500h88" stroke="#111110" stroke-width="14"/>
+    <path d="M198 198l62 62M740 740l62 62M802 198l-62 62M260 740l-62 62" stroke="#8B1E1E" stroke-width="10"/>
+    <path d="M500 205v58M500 737v58M205 500h58M737 500h58" stroke="#8B1E1E" stroke-width="7"/>
+    <path d="M295 295l40 40M665 665l40 40M705 295l-40 40M335 665l-40 40" stroke="#111110" stroke-width="6"/>
+  </g>
+  <g>
+    <rect x="382" y="382" width="236" height="236" fill="#111110"/>
+    <rect x="444" y="444" width="112" height="112" fill="#FAFAF8"/>
+    <rect x="472" y="472" width="56" height="56" fill="#8B1E1E"/>
+  </g>
+  <g fill="#8B1E1E">
+    <rect x="492" y="102" width="16" height="44"/>
+    <rect x="492" y="854" width="16" height="44"/>
+    <rect x="102" y="492" width="44" height="16"/>
+    <rect x="854" y="492" width="44" height="16"/>
+  </g>
+</svg>
