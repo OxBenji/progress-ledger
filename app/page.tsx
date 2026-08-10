@@ -1,609 +1,103 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-
-import { useState } from "react";
-
-const markConcepts = [
-  {
-    id: "concept-1-qed-seal",
-    title: "Q.E.D. seal",
-    note: "Circular proof stamp with a closed square at the center.",
-    verdict: "Chosen",
-  },
-  {
-    id: "concept-2-notary-shield",
-    title: "Notary shield",
-    note: "Credential shield with a sealed proof block.",
-    verdict: "Strong",
-  },
-  {
-    id: "concept-3-ledger-leaf",
-    title: "Ledger leaf",
-    note: "Receipt ledger lines closing into a proof mark.",
-    verdict: "Too detailed",
-  },
-  {
-    id: "concept-4-proof-bracket",
-    title: "Proof bracket",
-    note: "Mathematical margin notation around the end-of-proof square.",
-    verdict: "Too quiet",
-  },
-];
-
-const receipts = [
-  {
-    id: "POP-0001",
-    title: "Finite-field lemma formalized",
-    status: "Proven",
-    track: "Math",
-    subject: "Lean theorem file",
-    check: "lake build, no sorry",
-    verifier: "mathlib reviewer",
-    hash: "sha256:7d91...b2a0",
-  },
-  {
-    id: "POP-0002",
-    title: "Agent eval replay harness",
-    status: "Pending",
-    track: "AI Evals",
-    subject: "Pinned benchmark package",
-    check: "two-run reproducibility",
-    verifier: "eval steward",
-    hash: "sha256:43bf...91cc",
-  },
-  {
-    id: "POP-0003",
-    title: "Agent-created PR receipt",
-    status: "Proven",
-    track: "Agents",
-    subject: "Merged tooling patch",
-    check: "maintainer attestation",
-    verifier: "repo maintainer",
-    hash: "sha256:bb09...d810",
-  },
-];
-
-const bounties = [
-  {
-    id: "BNTY-001",
-    track: "Math",
-    title: "Formalize a small Lean lemma",
-    artifact: "Lean file or PR that typechecks without placeholders.",
-    verification: "Kernel check + reviewer note",
-    reward: "Reputation first",
-  },
-  {
-    id: "BNTY-002",
-    track: "Agents",
-    title: "Receipt for an agent-created PR",
-    artifact: "A meaningful patch with disclosed agent context.",
-    verification: "Test command + maintainer review",
-    reward: "Reputation first",
-  },
-  {
-    id: "BNTY-003",
-    track: "Compute",
-    title: "Signed compute output receipt",
-    artifact: "Hash, runtime log, and reproducible output.",
-    verification: "Replay or signature check",
-    reward: "Draft",
-  },
-];
-
-const protocolRules = [
-  "A claim is not progress until it points to an artifact.",
-  "A receipt is not accepted until a check can be repeated.",
-  "A reviewer attests to a bounded claim, not to a person or project.",
-  "Agents and humans submit through the same receipt path.",
-  "Economic claims wait until the verification graph is real.",
-];
-
-const chainRows = [
-  {
-    chain: "Robinhood Chain",
-    role: "Canonical EVM registry for agent finance receipts",
-    standard: "ERC-5192 / registry event",
-  },
-  {
-    chain: "Solana",
-    role: "Low-cost credential mirror for high-volume receipts",
-    standard: "Bubblegum V2 soulbound cNFT",
-  },
-  {
-    chain: "Base / Arbitrum",
-    role: "EVM proof mirrors and attestation surfaces",
-    standard: "EAS / ERC-5192",
-  },
-];
-
-const nftSamples = [
-  {
-    id: "POP-0101",
-    title: "Math proof",
-    src: "/receipt-nft-samples/pop-0101-math-proof.svg",
-  },
-  {
-    id: "POP-0102",
-    title: "Code eval",
-    src: "/receipt-nft-samples/pop-0102-code-eval.svg",
-  },
-  {
-    id: "POP-0103",
-    title: "Agent task",
-    src: "/receipt-nft-samples/pop-0103-agent-task.svg",
-  },
-  {
-    id: "POP-0104",
-    title: "Milestone",
-    src: "/receipt-nft-samples/pop-0104-milestone.svg",
-  },
-];
-
-const milestoneMarks = [
-  {
-    id: "base",
-    title: "Base medallion",
-    src: "/milestones/medallion-base-art-v2.png",
-    note: "Restrained official proof medal with sparse verification ticks.",
-  },
-  {
-    id: "verified-contributor",
-    title: "Verified Contributor",
-    src: "/milestones/milestone-verified-contributor-art-v2.png",
-    note: "Ledger receipt panels and witness nodes for repeat verified work.",
-  },
-  {
-    id: "top-verifier",
-    title: "Top Verifier",
-    src: "/milestones/milestone-top-verifier-art-v2.png",
-    note: "Calibrated audit gates for rare verifier authority.",
-  },
-];
-
-const milestoneUnlocks = [
-  {
-    code: "MS-01",
-    tier: "Base Medallion",
-    unlock: "First Proof Bundle",
-    requirement:
-      "3 accepted receipts in one domain, at least 2 distinct artifacts, 1 independent verifier, and no open disputes.",
-    proves:
-      "The contributor or agent can submit work that survives a repeatable check.",
-    not: "No payout claim, governance right, revenue share, or investment promise.",
-  },
-  {
-    code: "MS-02",
-    tier: "Verified Contributor",
-    unlock: "Repeat Accepted Work",
-    requirement:
-      "25 accepted receipts or 10 high-signal receipts across 2 domains, 3 independent verifiers, and at least 2 accepted bounty closures.",
-    proves:
-      "The contributor or agent has a pattern of useful verified output, not one lucky artifact.",
-    not: "Not a skill guarantee, not transferable reputation, and not a shortcut around review.",
-  },
-  {
-    code: "MS-03",
-    tier: "Top Verifier",
-    unlock: "Trusted Review Authority",
-    requirement:
-      "15 accepted reviews, 10 later confirmed by repeat checks, 5 distinct contributors reviewed, and no unresolved conflict reversals.",
-    proves:
-      "The reviewer can judge bounded claims reliably enough for others to route work through them.",
-    not: "Not permanent status. A dispute, conflict pattern, or failed audit can pause future mints.",
-  },
-];
-
-const milestoneGuardrails = [
-  "Milestones only mint from accepted Tier 1 receipts, never from social proof.",
-  "Every counted receipt needs an artifact hash, verification method, verifier attestation, and dispute window.",
-  "Recognition milestones stay separate from payout or revenue-share claims.",
-  "Agents and humans qualify through the same receipt math.",
-];
-
-const innovationMoves = [
-  {
-    title: "Agent proof passport",
-    detail:
-      "A signed bundle that an agent can present before a deal: accepted receipts, verifier graph, disputes, and failure-credit history.",
-  },
-  {
-    title: "Verifier-weighted reputation",
-    detail:
-      "Reputation increases when independent checks keep confirming the work and decreases when reviews get overturned.",
-  },
-  {
-    title: "Cross-chain witness layer",
-    detail:
-      "One canonical receipt hash can be mirrored on Robinhood Chain, Solana, and EVM networks without fragmenting the proof record.",
-  },
-  {
-    title: "Escrowed claim path",
-    detail:
-      "Any future value-bearing token should point to a specific funded bounty or escrowed payout and burn on redemption.",
-  },
-];
+import Link from "next/link";
+import { PageIntro, SectionHeading, SiteShell } from "./components";
+import { attentionMoves, categoryPages, innovationMoves, milestoneUnlocks, passportFacts, receipts } from "./content";
 
 export default function Home() {
-  const [copied, setCopied] = useState(false);
-
-  async function copyReceipt() {
-    try {
-      await navigator.clipboard.writeText("POP-0001");
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1200);
-    } catch {
-      setCopied(false);
-    }
-  }
-
   return (
-    <main id="top">
-      <header className="site-header">
-        <a className="brand-lockup" href="#top" aria-label="Proof of Progress home">
-          <img src="/brand/proof-mark.svg" alt="" className="brand-mark" />
-          <span>Proof of Progress</span>
-        </a>
-        <nav className="nav-links" aria-label="Primary navigation">
-          <a href="#receipts">Receipts</a>
-          <a href="#nft-images">NFT Images</a>
-          <a href="#milestones">Milestones</a>
-          <a href="#unlocks">Unlocks</a>
-          <a href="#bounties">Bounties</a>
-          <a href="#protocol">Protocol</a>
-          <a href="#mark">Mark</a>
-        </nav>
-        <a className="header-link" href="https://github.com/OxBenji/progress-ledger" target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-      </header>
-
-      <section className="hero">
-        <div className="hero-copy">
+    <SiteShell>
+      <section className="home-hero">
+        <div>
           <p className="eyebrow">Verified work first</p>
-          <h1>Receipts for work that has been checked, not claimed.</h1>
-          <p className="hero-lede">
-            Proof of Progress is the public credential layer for Progress Ledger:
-            a formal record of AI agent and human work, issued only when an
-            artifact survives a stated verification method.
+          <h1>Proof pages for humans, agents, and work that actually happened.</h1>
+          <p>
+            Progress Ledger is becoming a fast, inspectable proof network:
+            receipts for checked artifacts, milestones for real thresholds, and
+            agent passports people can inspect before a deal.
           </p>
           <div className="hero-actions" aria-label="Primary actions">
-            <a className="button primary" href="#bounties">
-              Open bounty board
-            </a>
-            <a className="button secondary" href="#protocol">
-              Read protocol v0.1
-            </a>
+            <Link className="button primary" href="/agent-passports">
+              Open agent passport
+            </Link>
+            <Link className="button secondary" href="/milestones">
+              View unlock rules
+            </Link>
           </div>
         </div>
-
-        <aside className="hero-receipt" aria-label="Featured proof receipt">
-          <div className="receipt-head">
-            <span className="data">POP-0001</span>
-            <span className="status proven">Proven</span>
-          </div>
-          <h2>Finite-field lemma formalized</h2>
-          <dl className="receipt-facts">
-            <div>
-              <dt>Artifact</dt>
-              <dd>Lean theorem file</dd>
-            </div>
-            <div>
-              <dt>Check</dt>
-              <dd>kernel build, no sorry</dd>
-            </div>
-            <div>
-              <dt>Verifier</dt>
-              <dd>mathlib reviewer</dd>
-            </div>
-            <div>
-              <dt>Hash</dt>
-              <dd className="data">sha256:7d91...b2a0</dd>
-            </div>
+        <aside className="proof-dashboard" aria-label="Proof network status">
+          <span className="data">network:progress-ledger-v0.1</span>
+          <h2>Current build surface</h2>
+          <dl>
+            {passportFacts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
           </dl>
-          <div className="proof-stamp" aria-label="Proof complete stamp">
-            <span>Proof complete</span>
-            <b aria-hidden="true">{"\u220E"}</b>
-          </div>
+          <p>Next: agent proof passport JSON and verifier graph.</p>
         </aside>
       </section>
 
-      <section id="mark" className="section mark-section">
-        <div className="section-kicker">
-          <p className="eyebrow">Mark studies</p>
-          <h2>Four directions, one final seal.</h2>
-        </div>
-        <div className="concept-grid">
-          {markConcepts.map((concept) => (
-            <article className="concept" key={concept.id}>
-              <img src={`/brand/${concept.id}.svg`} alt={`${concept.title} logo concept`} />
-              <div>
-                <span>{concept.verdict}</span>
-                <h3>{concept.title}</h3>
-                <p>{concept.note}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="recommendation">
-          <img src="/brand/proof-wordmark.svg" alt="Proof of Progress wordmark lockup" />
-          <p>
-            The Q.E.D. seal is the strongest mark: it survives favicon size, has
-            the seriousness of an official stamp, and ties directly to the
-            mathematical end-of-proof square without becoming ornate.
-          </p>
-        </div>
-      </section>
-
-      <section id="receipts" className="section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Citable claims</p>
-            <h2>Receipts read like references.</h2>
-          </div>
-          <button className="copy-id" onClick={copyReceipt} type="button">
-            {copied ? "Copied POP-0001" : "Copy receipt ID"}
-          </button>
-        </div>
-        <div className="receipt-list">
-          {receipts.map((receipt) => (
-            <article className="receipt-row" key={receipt.id}>
-              <div className="receipt-index">
-                <span className="data">{receipt.id}</span>
-                <span className={receipt.status === "Proven" ? "status proven" : "status pending"}>
-                  {receipt.status}
-                </span>
-              </div>
-              <div>
-                <h3>{receipt.title}</h3>
-                <p>{receipt.subject}</p>
-              </div>
-              <dl>
-                <div>
-                  <dt>Track</dt>
-                  <dd>{receipt.track}</dd>
-                </div>
-                <div>
-                  <dt>Check</dt>
-                  <dd>{receipt.check}</dd>
-                </div>
-                <div>
-                  <dt>Verifier</dt>
-                  <dd>{receipt.verifier}</dd>
-                </div>
-                <div>
-                  <dt>Hash</dt>
-                  <dd className="data">{receipt.hash}</dd>
-                </div>
-              </dl>
-              {receipt.status === "Proven" ? (
-                <div className="mini-stamp" aria-label="Proof complete">
-                  {"\u220E"}
-                </div>
-              ) : null}
-            </article>
+      <section className="section">
+        <SectionHeading
+          eyebrow="Site map"
+          title="Each category now has its own page."
+          lede="The homepage stays fast and directional. The detailed proof objects live on dedicated routes."
+        />
+        <div className="category-grid">
+          {categoryPages.map((page) => (
+            <Link className="category-card" href={page.href} key={page.href}>
+              <span>{page.eyebrow}</span>
+              <h3>{page.title}</h3>
+              <p>{page.summary}</p>
+              <b>{page.signal}</b>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section id="nft-images" className="section nft-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Token image renderer</p>
-            <h2>Four receipt-native NFT design families.</h2>
-          </div>
-        </div>
-        <p>
-          Mint metadata can call the same renderer with receipt data and receive
-          a static 1000x1000 SVG or data URI. Each design keeps the same proof
-          journal language: mark, ID, artifact, check, verifier, hash, PROVEN
-          stamp, and SBT status.
-        </p>
-        <div className="nft-render-grid">
-          {nftSamples.map((sample) => (
-            <article className="nft-render" key={sample.id}>
-              <img src={sample.src} alt={`${sample.id} ${sample.title} NFT receipt render`} />
-              <div>
-                <span className="data">{sample.id}</span>
-                <strong>{sample.title}</strong>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="milestones" className="section milestone-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Milestone marks</p>
-            <h2>Rare achievement seals, same proof language.</h2>
-          </div>
-        </div>
-        <p>
-          Milestone token art stays text-free. Metadata supplies the tier name;
-          the image supplies the collectible object: textured paper, stamped
-          ink, proof-red witness marks, and a Q.E.D. structure that changes by
-          achievement tier.
-        </p>
-        <div className="milestone-grid">
-          {milestoneMarks.map((mark) => (
-            <article className="milestone-card" key={mark.id}>
-              <img src={mark.src} alt={`${mark.title} medallion mark`} />
-              <div>
-                <span className="data">{mark.id}</span>
-                <strong>{mark.title}</strong>
-                <p>{mark.note}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="unlocks" className="section unlock-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Unlock rules</p>
-            <h2>Not collectibles first. Verified thresholds first.</h2>
-          </div>
-        </div>
-        <p>
-          Tier 2 marks are rare because the receipt graph unlocks them. The art
-          is a signal on top of the record; it does not replace the record.
-        </p>
-        <div className="unlock-table">
-          {milestoneUnlocks.map((item) => (
-            <article className="unlock-row" key={item.code}>
-              <div>
-                <span className="data">{item.code}</span>
-                <h3>{item.tier}</h3>
-                <p>{item.unlock}</p>
-              </div>
-              <dl>
-                <div>
-                  <dt>Unlock requirement</dt>
-                  <dd>{item.requirement}</dd>
-                </div>
-                <div>
-                  <dt>What it proves</dt>
-                  <dd>{item.proves}</dd>
-                </div>
-                <div>
-                  <dt>What it does not promise</dt>
-                  <dd>{item.not}</dd>
-                </div>
-              </dl>
-            </article>
-          ))}
-        </div>
-        <div className="guardrail-panel" aria-label="Milestone guardrails">
-          {milestoneGuardrails.map((rule) => (
-            <p key={rule}>{rule}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="section innovation-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Next level</p>
-            <h2>Make proof useful before money enters the room.</h2>
-          </div>
-        </div>
-        <div className="innovation-grid">
-          {innovationMoves.map((move) => (
-            <article className="innovation-card" key={move.title}>
+      <section className="section attention-section">
+        <SectionHeading
+          eyebrow="Attention flywheel"
+          title="The CT hook is inspectable agent credibility."
+          lede="The strongest version is not another token page. It is a public proof layer people use before trusting agents, bounties, or claims."
+        />
+        <div className="attention-grid">
+          {attentionMoves.map((move) => (
+            <article className="attention-card" key={move.title}>
               <h3>{move.title}</h3>
               <p>{move.detail}</p>
+              <strong>{move.why}</strong>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="bounties" className="section split">
-        <div>
-          <p className="eyebrow">Bounty board</p>
-          <h2>Work starts as a task. Credit starts as a receipt.</h2>
-          <p>
-            Bounties stay useful when they name the artifact, the verification
-            method, the reviewer requirement, and what does not count.
-          </p>
-        </div>
-        <div className="bounty-table">
-          {bounties.map((bounty) => (
-            <article className="bounty" key={bounty.id}>
-              <span className="data">{bounty.id}</span>
-              <div>
-                <h3>{bounty.title}</h3>
-                <p>{bounty.artifact}</p>
-              </div>
-              <dl>
-                <div>
-                  <dt>Track</dt>
-                  <dd>{bounty.track}</dd>
-                </div>
-                <div>
-                  <dt>Verification</dt>
-                  <dd>{bounty.verification}</dd>
-                </div>
-                <div>
-                  <dt>Reward</dt>
-                  <dd>{bounty.reward}</dd>
-                </div>
-              </dl>
-            </article>
-          ))}
+      <section className="section home-proof">
+        <PageIntro
+          eyebrow="Today"
+          title="Rules before hype."
+          lede="The next build priority is a real proof passport: accepted receipts, disputes, failure-credit entries, and milestone eligibility in one shareable record."
+          meta="Monday focus: structure, not speculation"
+        />
+        <div className="home-proof-grid">
+          <article>
+            <span className="data">{receipts[0].id}</span>
+            <h3>{receipts[0].title}</h3>
+            <p>{receipts[0].check} by {receipts[0].verifier}</p>
+          </article>
+          <article>
+            <span className="data">{milestoneUnlocks[0].code}</span>
+            <h3>{milestoneUnlocks[0].unlock}</h3>
+            <p>{milestoneUnlocks[0].requirement}</p>
+          </article>
+          <article>
+            <span className="data">next-level</span>
+            <h3>{innovationMoves[0].title}</h3>
+            <p>{innovationMoves[0].detail}</p>
+          </article>
         </div>
       </section>
-
-      <section id="protocol" className="section protocol">
-        <div className="protocol-copy">
-          <p className="eyebrow">Protocol v0.1</p>
-          <h2>A proof journal for humans, agents, and eventually deals.</h2>
-          <p>
-            The ledger is chain-neutral at the receipt layer. Robinhood Chain can
-            become the first finance-native home, while Solana and EVM chains
-            can mirror the same receipt hash in their native credential format.
-          </p>
-        </div>
-        <ol className="rules">
-          {protocolRules.map((rule) => (
-            <li key={rule}>{rule}</li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="section chain-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Open multichain</p>
-            <h2>One canonical receipt. Many native proofs.</h2>
-          </div>
-        </div>
-        <div className="chain-table" role="table" aria-label="Multichain proof options">
-          <div className="chain-table-head" role="row">
-            <span role="columnheader">Chain</span>
-            <span role="columnheader">Role</span>
-            <span role="columnheader">Native proof</span>
-          </div>
-          {chainRows.map((row) => (
-            <div className="chain-row" role="row" key={row.chain}>
-              <span role="cell">{row.chain}</span>
-              <span role="cell">{row.role}</span>
-              <span role="cell" className="data">{row.standard}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section deal-check">
-        <div>
-          <p className="eyebrow">Agent deal check</p>
-          <h2>Before you fund an agent, inspect its receipts.</h2>
-        </div>
-        <div className="deal-panel">
-          <span className="data">agent:researcher-42</span>
-          <p>28 accepted receipts {"\u00b7"} 2 disputed {"\u00b7"} 4 failure-credit entries</p>
-          <div className="deal-lines">
-            <span>Code PRs</span>
-            <b style={{ width: "78%" }} />
-            <span>28</span>
-            <span>Eval runs</span>
-            <b style={{ width: "42%" }} />
-            <span>12</span>
-            <span>Math attempts</span>
-            <b style={{ width: "18%" }} />
-            <span>4</span>
-          </div>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <img src="/brand/proof-mark-accent.svg" alt="" />
-        <div>
-          <strong>Proof of Progress</strong>
-          <p>Issued by Progress Ledger. Verified work first.</p>
-        </div>
-        <a href="#top">Back to top</a>
-      </footer>
-    </main>
+    </SiteShell>
   );
 }

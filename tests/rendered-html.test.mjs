@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -23,7 +23,7 @@ async function render() {
   );
 }
 
-test("server-renders the Proof of Progress product surface", async () => {
+test("server-renders the Proof of Progress home surface", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -31,33 +31,35 @@ test("server-renders the Proof of Progress product surface", async () => {
   const html = await response.text();
   assert.match(html, /Proof of Progress/);
   assert.match(html, /Verified work first/);
-  assert.match(html, /Receipts for work that has been checked/);
-  assert.match(html, /Open bounty board/);
-  assert.match(html, /Read protocol v0\.1/);
-  assert.match(html, /Q\.E\.D\. seal/);
-  assert.match(html, /Proof complete/);
-  assert.match(html, /POP-0001/);
-  assert.match(html, /Token image renderer/);
-  assert.match(html, /Four receipt-native NFT design families/);
-  assert.match(html, /POP-0102/);
-  assert.match(html, /POP-0104/);
-  assert.match(html, /Milestone marks/);
-  assert.match(html, /Rare achievement seals/);
-  assert.match(html, /Verified Contributor/);
-  assert.match(html, /Top Verifier/);
-  assert.match(html, /Unlock rules/);
-  assert.match(html, /Not collectibles first/);
-  assert.match(html, /First Proof Bundle/);
-  assert.match(html, /Repeat Accepted Work/);
-  assert.match(html, /Trusted Review Authority/);
+  assert.match(html, /Proof pages for humans, agents/);
+  assert.match(html, /Each category now has its own page/);
+  assert.match(html, /Receipt ledger/);
+  assert.match(html, /Milestone unlocks/);
   assert.match(html, /Agent proof passport/);
-  assert.match(html, /Escrowed claim path/);
-  assert.match(html, /Bounty board/);
-  assert.match(html, /Protocol v0\.1/);
-  assert.match(html, /One canonical receipt/);
-  assert.match(html, /Agent deal check/);
+  assert.match(html, /Claim-to-receipt challenges/);
+  assert.match(html, /Rules before hype/);
   assert.match(html, /Progress Ledger/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
+});
+
+test("server-renders category pages", async () => {
+  const pages = [
+    ["/receipts", /Tier 1 receipts/, /Receipt-native token images/],
+    ["/milestones", /Tier 2 milestones/, /Not collectibles first/],
+    ["/agent-passports", /Agent credibility/, /agent:researcher-42/],
+    ["/bounties", /Bounty board/, /Receipt mints/],
+    ["/protocol", /Protocol v0\.1/, /The minimum viable proof culture/],
+    ["/multichain", /Open multichain/, /One canonical receipt/],
+    ["/brand", /Brand system/, /Q\.E\.D\. seal selected/],
+  ];
+
+  for (const [path, heading, detail] of pages) {
+    const response = await render(path);
+    assert.equal(response.status, 200, `${path} should render`);
+    const html = await response.text();
+    assert.match(html, heading, `${path} should include heading`);
+    assert.match(html, detail, `${path} should include detail`);
+  }
 });
 
 test("removes disposable starter references", async () => {
