@@ -1,14 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import { apiMeta, listReceiptSubmissions, queueReceiptSubmission } from "../../../../lib/proof-ledger";
+import { apiMeta, queueReceiptSubmission } from "../../../../lib/proof-ledger";
+import {
+  getSubmissionStorageStatus,
+  listStoredReceiptSubmissions,
+  persistReceiptSubmission,
+} from "../../../../lib/receipt-submission-storage";
 
-export function GET() {
-  const submissions = listReceiptSubmissions();
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  const { storage, submissions } = await listStoredReceiptSubmissions();
 
   return NextResponse.json({
     ...apiMeta(),
     count: submissions.length,
-    persistence: "prototype_seed_queue",
-    next_storage_step: "wire durable submission storage before accepting public production intake",
+    persistence: storage.provider,
+    storage,
+    next_storage_step: storage.configured ? "reviewer attestations and dispute windows" : "attach Upstash Redis env vars",
     submissions,
   });
 }
@@ -41,11 +49,19 @@ export async function POST(request: NextRequest) {
   }
 
   const submission = queueReceiptSubmission(body);
+  const persistence = submission.accepted_for_review
+    ? await persistReceiptSubmission(submission)
+    : {
+        storage: getSubmissionStorageStatus(),
+        persisted: false,
+        detail: "Submission is incomplete and was not persisted.",
+      };
 
   return NextResponse.json(
     {
       ...apiMeta(),
       submission,
+      persistence,
     },
     { status: submission.accepted_for_review ? 202 : 422 },
   );

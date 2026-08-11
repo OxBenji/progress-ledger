@@ -1214,6 +1214,31 @@ dd {
   border-top: 1px solid var(--rule-strong);
 }
 
+.storage-panel {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.4fr) minmax(220px, 0.45fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 22px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule);
+}
+
+.storage-panel div {
+  min-width: 0;
+}
+
+.storage-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.storage-panel.is-durable dd {
+  color: var(--proof-red);
+  font-weight: 800;
+}
+
 .submission-form {
   display: grid;
   gap: 18px;
@@ -1372,6 +1397,13 @@ dd {
 .queue-row p {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+.queue-row h3 + p + .data {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--proof-red);
+  font-weight: 800;
 }
 
 .queue-row dl {
@@ -1676,6 +1708,7 @@ dd {
   .milestone-status-grid,
   .submission-console,
   .submission-two-column,
+  .storage-panel,
   .queue-row,
   .queue-row dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1789,6 +1822,7 @@ dd {
   .milestone-status-grid,
   .submission-console,
   .submission-two-column,
+  .storage-panel,
   .form-grid,
   .queue-row,
   .queue-row dl {

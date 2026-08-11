@@ -37,6 +37,8 @@ export type QueuedReceiptSubmission = {
   status: string;
   review_state: string;
   next_action: string;
+  source?: string;
+  submitted_at?: string;
 };
 
 export const apiVersion = "0.1.0";

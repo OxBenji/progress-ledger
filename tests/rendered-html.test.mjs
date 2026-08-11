@@ -50,7 +50,7 @@ test("server-renders category pages", async () => {
     ["/agent/researcher-42", /agent:researcher-42/, /Receipt timeline/],
     ["/bounties", /Bounty board/, /Receipt mints/],
     ["/submit", /Receipt intake/, /Submit a receipt candidate/],
-    ["/review-queue", /Reviewer queue/, /Every row has a next action/],
+    ["/review-queue", /Reviewer queue/, /Storage adapter ready/],
     ["/protocol", /Protocol v0\.1/, /The minimum viable proof culture/],
     ["/multichain", /Open multichain/, /One canonical receipt/],
     ["/brand", /Brand system/, /Q\.E\.D\. seal selected/],

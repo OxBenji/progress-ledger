@@ -15,6 +15,15 @@ type SubmissionResponse = {
     };
     next_actions: string[];
   };
+  persistence?: {
+    persisted: boolean;
+    detail: string;
+    storage: {
+      provider: string;
+      durable: boolean;
+      configured: boolean;
+    };
+  };
   error?: string;
   detail?: string;
 };
@@ -148,6 +157,12 @@ export function ReceiptSubmissionForm() {
                 <span className="data">{submitState.response.submission.queue_id}</span>
                 <h3>{submitState.response.submission.review_state}</h3>
                 <p>{submitState.response.submission.validation.next_step}</p>
+                {submitState.response.persistence ? (
+                  <p>
+                    Storage: {submitState.response.persistence.persisted ? "persisted" : "not persisted"} via{" "}
+                    <span className="data">{submitState.response.persistence.storage.provider}</span>
+                  </p>
+                ) : null}
               </div>
             ) : (
               <p>{submitState.response.detail ?? submitState.response.error}</p>

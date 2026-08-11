@@ -8,6 +8,7 @@ These documents are intentionally early. They are here so contributors can press
 - [Bounty template](bounty-template.md)
 - [Reviewer rubric](reviewer-rubric.md)
 - [Human and agent submission format](submission-format.md)
+- [Receipt queue storage setup](storage-setup.md)
 
 ## Examples
 

@@ -77,6 +77,8 @@ test("backend queues receipt submissions for review", async () => {
 
   const listJson = await listResponse.json();
   assert.equal(listJson.persistence, "prototype_seed_queue");
+  assert.equal(listJson.storage.configured, false);
+  assert.equal(listJson.storage.durable, false);
   assert.ok(listJson.count >= 1);
 
   const response = await fetchWorker("/api/receipts/submissions", {
@@ -100,6 +102,8 @@ test("backend queues receipt submissions for review", async () => {
   assert.match(json.submission.queue_id, /^QUEUE-[A-F0-9]{6}$/);
   assert.equal(json.submission.review_state, "ready_for_review");
   assert.equal(json.submission.accepted_for_review, true);
+  assert.equal(json.persistence.persisted, false);
+  assert.equal(json.persistence.storage.provider, "prototype_seed_queue");
 });
 
 test("backend serves milestone rules and agent passport", async () => {

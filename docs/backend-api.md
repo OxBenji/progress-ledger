@@ -57,11 +57,13 @@ Allowed status values:
 - `202` means the packet has every required field and is ready for reviewer assignment.
 - `422` means the packet is shaped correctly but missing required fields or using an invalid status.
 - The response includes `queue_id`, `review_state`, `accepted_for_review`, validation details, and next actions.
-- Current persistence is `prototype_seed_queue`; durable storage is the next backend step before real public intake.
+- Current fallback persistence is `prototype_seed_queue`.
+- Durable queue storage is implemented through the Upstash Redis adapter when `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` are attached in Vercel.
+- In fallback mode the API still validates packets and returns a queue id, but `persistence.persisted` is `false`.
 
 ## What Comes Next
 
-1. Add durable storage for receipt submissions.
+1. Attach Upstash Redis env vars in Vercel for live durable writes.
 2. Add reviewer attestation records.
 3. Add disputes and failure-credit entries.
 4. Add milestone eligibility calculation.

@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { PageIntro, SectionHeading, SiteShell, StatusPill } from "../components";
-import { reviewQueue } from "../content";
+import { listStoredReceiptSubmissions } from "../../lib/receipt-submission-storage";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Review Queue",
   description: "Prototype reviewer queue for Progress Ledger receipt submissions.",
 };
 
-export default function ReviewQueuePage() {
+export default async function ReviewQueuePage() {
+  const { storage, submissions } = await listStoredReceiptSubmissions();
+
   return (
     <SiteShell>
       <PageIntro
@@ -19,12 +23,23 @@ export default function ReviewQueuePage() {
 
       <section className="section queue-layout">
         <SectionHeading
-          eyebrow="Prototype queue"
+          eyebrow={storage.durable ? "Durable queue" : "Prototype queue"}
           title="Every row has a next action."
           lede="This page is the operational bridge between public submissions and accepted receipts."
         />
+        <aside className={`storage-panel ${storage.durable ? "is-durable" : "is-seed"}`}>
+          <div>
+            <dt>Storage</dt>
+            <dd>{storage.durable ? "Durable writes enabled" : "Storage adapter ready"}</dd>
+          </div>
+          <div>
+            <dt>Provider</dt>
+            <dd className="data">{storage.provider}</dd>
+          </div>
+          <p>{storage.detail}</p>
+        </aside>
         <div className="queue-table" aria-label="Receipt review queue">
-          {reviewQueue.map((submission) => (
+          {submissions.map((submission) => (
             <article className="queue-row" key={submission.queue_id}>
               <div>
                 <span className="data">{submission.queue_id}</span>
@@ -35,6 +50,7 @@ export default function ReviewQueuePage() {
               <div>
                 <h3>{submission.artifact}</h3>
                 <p>{submission.next_action}</p>
+                {submission.source ? <span className="data">source:{submission.source}</span> : null}
               </div>
               <dl>
                 <div>
