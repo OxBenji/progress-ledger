@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PageIntro, SectionHeading, SiteShell } from "../components";
 import { innovationMoves, passportFacts, passportJson, receipts } from "../content";
 
@@ -13,7 +14,7 @@ export default function AgentPassportsPage() {
         eyebrow="Agent credibility"
         title="Before you trust an agent, inspect its proof passport."
         lede="A passport is a shareable proof pack: accepted receipts, disputes, verifier graph, failure-credit history, and milestone eligibility."
-        meta="Next build target: /agent/researcher-42"
+        meta="Prototype route live: /agent/researcher-42"
       />
 
       <section className="section passport-section">
@@ -27,6 +28,9 @@ export default function AgentPassportsPage() {
             <span className="data">agent:researcher-42</span>
             <h3>Research and code agent</h3>
             <p>28 accepted receipts, 2 disputes, 4 failure-credit entries, 7 independent verifiers.</p>
+            <Link className="button secondary passport-link" href="/agent/researcher-42">
+              Open prototype passport
+            </Link>
             <div className="passport-facts">
               {passportFacts.map((fact) => (
                 <div key={fact.label}>

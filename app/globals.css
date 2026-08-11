@@ -204,6 +204,17 @@ main {
 
 .page-intro h1 {
   max-width: 980px;
+  overflow-wrap: anywhere;
+}
+
+.agent-id-title {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.agent-id-title span {
+  display: inline-block;
+  overflow-wrap: normal;
 }
 
 .page-intro > p {
@@ -956,6 +967,11 @@ dd {
   padding: 22px;
 }
 
+.passport-link {
+  width: fit-content;
+  margin: 4px 0 18px;
+}
+
 .passport-card h3 {
   margin: 10px 0 8px;
   font-size: 31px;
@@ -974,6 +990,203 @@ dd {
   font-family: var(--font-geist-mono, Consolas), ui-monospace, monospace;
   font-size: 14px;
   line-height: 1.7;
+}
+
+.agent-overview-grid,
+.agent-two-column {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+}
+
+.agent-overview-grid {
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+}
+
+.agent-two-column {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+}
+
+.agent-summary,
+.agent-current-state,
+.agent-next-actions {
+  border-top: 1px solid var(--rule-strong);
+}
+
+.agent-summary {
+  padding-top: 20px;
+}
+
+.agent-summary h2 {
+  margin: 10px 0 14px;
+}
+
+.agent-summary > p {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.agent-metric-strip,
+.agent-current-state,
+.verifier-grid,
+.milestone-status-grid {
+  display: grid;
+  border-top: 1px solid var(--rule-strong);
+  border-left: 1px solid var(--rule);
+}
+
+.agent-metric-strip {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.agent-metric-strip div,
+.agent-current-state div,
+.verifier-grid article,
+.milestone-status-grid article {
+  min-width: 0;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.agent-metric-strip div {
+  padding: 16px;
+}
+
+.agent-metric-strip dd {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.agent-current-state {
+  grid-template-columns: 1fr;
+}
+
+.agent-current-state div {
+  padding: 16px 0;
+  border-right: 0;
+}
+
+.agent-current-state a {
+  color: var(--proof-red);
+  font-weight: 800;
+}
+
+.agent-current-state dd {
+  overflow-wrap: anywhere;
+}
+
+.agent-timeline {
+  border-top: 1px solid var(--rule-strong);
+}
+
+.agent-timeline-item {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.42fr) minmax(220px, 0.68fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.agent-timeline-item > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.agent-timeline-item h3 {
+  font-size: 25px;
+}
+
+.agent-timeline-item p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.agent-timeline-item dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+}
+
+.agent-timeline-item dl div {
+  min-width: 0;
+}
+
+.agent-timeline-item dd {
+  overflow-wrap: anywhere;
+}
+
+.verifier-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.verifier-grid article,
+.milestone-status-grid article {
+  padding: 18px;
+}
+
+.verifier-grid h3,
+.milestone-status-grid h3 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.verifier-grid p,
+.milestone-status-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.agent-json {
+  min-height: 380px;
+}
+
+.milestone-status-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.milestone-status-grid article {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 250px;
+}
+
+.milestone-status-grid .status {
+  width: fit-content;
+}
+
+.milestone-status-grid .is-unlocked {
+  background:
+    linear-gradient(90deg, rgba(139, 30, 30, 0.05) 1px, transparent 1px),
+    var(--paper);
+  background-size: 34px 34px;
+}
+
+.risk-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule-strong);
+  list-style: none;
+}
+
+.risk-list li {
+  min-height: 62px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.agent-next-actions .section-heading {
+  margin-bottom: 18px;
 }
 
 .receipt-row {
@@ -1212,7 +1425,9 @@ dd {
   .protocol,
   .deal-check,
   .home-proof,
-  .passport-grid {
+  .passport-grid,
+  .agent-overview-grid,
+  .agent-two-column {
     grid-template-columns: 1fr;
   }
 
@@ -1255,6 +1470,14 @@ dd {
   .unlock-row dl,
   .guardrail-panel,
   .innovation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agent-metric-strip,
+  .agent-timeline-item,
+  .agent-timeline-item dl,
+  .verifier-grid,
+  .milestone-status-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1314,6 +1537,10 @@ dd {
     font-size: clamp(42px, 13vw, 58px);
   }
 
+  .page-intro h1 .agent-id-title {
+    font-size: clamp(39px, 10.6vw, 48px);
+  }
+
   .hero-receipt {
     padding: 20px;
   }
@@ -1352,6 +1579,14 @@ dd {
   .chain-table-head,
   .chain-row,
   .deal-lines {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-metric-strip,
+  .agent-timeline-item,
+  .agent-timeline-item dl,
+  .verifier-grid,
+  .milestone-status-grid {
     grid-template-columns: 1fr;
   }
 

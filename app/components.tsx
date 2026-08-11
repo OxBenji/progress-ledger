@@ -4,7 +4,7 @@ import { navigation } from "./content";
 
 type PageIntroProps = {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   lede: string;
   meta?: string;
 };
