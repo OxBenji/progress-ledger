@@ -8,6 +8,7 @@ import {
   passportFacts,
   passportJson,
   receipts,
+  reviewQueue,
 } from "../app/content";
 
 export type ApiError = {
@@ -23,6 +24,19 @@ export type ReceiptCandidate = {
   verifier?: unknown;
   hash?: unknown;
   status?: unknown;
+};
+
+export type QueuedReceiptSubmission = {
+  queue_id: string;
+  receipt_id: string;
+  task_type: string;
+  artifact: string;
+  check: string;
+  verifier: string;
+  hash: string;
+  status: string;
+  review_state: string;
+  next_action: string;
 };
 
 export const apiVersion = "0.1.0";
@@ -83,6 +97,7 @@ export function getBackendIndex() {
       "/api/receipts",
       "/api/receipts/:id",
       "/api/receipts/preview",
+      "/api/receipts/submissions",
       "/api/milestones",
       "/api/agents/:agentId/passport",
       "/api/bounties",
@@ -94,6 +109,10 @@ export function getBackendIndex() {
 
 export function getBounties() {
   return bounties;
+}
+
+export function listReceiptSubmissions() {
+  return reviewQueue;
 }
 
 export function getMultichainPlan() {
@@ -120,5 +139,52 @@ export function validateReceiptCandidate(candidate: ReceiptCandidate) {
       missing.length === 0 && statusIsValid
         ? "Ready for reviewer attestation."
         : "Add the missing fields before a reviewer can inspect this receipt.",
+  };
+}
+
+function asTrimmedString(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function shortQueueHash(input: string) {
+  let hash = 2166136261;
+
+  for (let index = 0; index < input.length; index += 1) {
+    hash ^= input.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return (hash >>> 0).toString(16).toUpperCase().padStart(8, "0").slice(0, 6);
+}
+
+export function queueReceiptSubmission(candidate: ReceiptCandidate) {
+  const validation = validateReceiptCandidate(candidate);
+  const normalized = {
+    receipt_id: asTrimmedString(candidate.receipt_id),
+    task_type: asTrimmedString(candidate.task_type),
+    artifact: asTrimmedString(candidate.artifact),
+    check: asTrimmedString(candidate.check),
+    verifier: asTrimmedString(candidate.verifier),
+    hash: asTrimmedString(candidate.hash),
+    status: asTrimmedString(candidate.status).toLowerCase(),
+  };
+  const queueHash = shortQueueHash(JSON.stringify(normalized));
+
+  return {
+    queue_id: `QUEUE-${queueHash}`,
+    review_state: validation.ok ? "ready_for_review" : "needs_fields",
+    accepted_for_review: validation.ok,
+    candidate: normalized,
+    validation,
+    next_actions: validation.ok
+      ? [
+          "Assign a domain reviewer.",
+          "Attach reviewer attestation.",
+          "Open a dispute window before minting the receipt.",
+        ]
+      : [
+          "Complete every required receipt field.",
+          "Keep the status set to pending until a reviewer accepts the check.",
+        ],
   };
 }

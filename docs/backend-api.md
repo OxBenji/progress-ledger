@@ -14,6 +14,8 @@ database is attached.
 | GET | `/api/receipts?status=Proven` | Filter receipts by status |
 | GET | `/api/receipts/POP-0001` | Fetch one receipt |
 | POST | `/api/receipts/preview` | Validate a receipt candidate without saving |
+| GET | `/api/receipts/submissions` | Fetch prototype receipt review queue |
+| POST | `/api/receipts/submissions` | Validate and queue a receipt candidate packet |
 | GET | `/api/milestones` | Fetch milestone art, unlocks, and guardrails |
 | GET | `/api/agents/researcher-42/passport` | Fetch the prototype agent proof passport |
 | GET | `/api/bounties` | Fetch bounty records |
@@ -45,11 +47,21 @@ Allowed status values:
 - Serves canonical seed data.
 - Exposes receipts, milestones, bounties, multichain, and agent passports.
 - Validates receipt candidate shape.
+- Queues prototype receipt submissions with review state and next actions.
 - Gives the frontend and future MCP server a stable API target.
+
+## Receipt Submissions
+
+`POST /api/receipts/submissions` accepts the same fields as the preview payload.
+
+- `202` means the packet has every required field and is ready for reviewer assignment.
+- `422` means the packet is shaped correctly but missing required fields or using an invalid status.
+- The response includes `queue_id`, `review_state`, `accepted_for_review`, validation details, and next actions.
+- Current persistence is `prototype_seed_queue`; durable storage is the next backend step before real public intake.
 
 ## What Comes Next
 
-1. Add persistent receipt submissions.
+1. Add durable storage for receipt submissions.
 2. Add reviewer attestation records.
 3. Add disputes and failure-credit entries.
 4. Add milestone eligibility calculation.

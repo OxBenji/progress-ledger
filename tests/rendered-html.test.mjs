@@ -49,6 +49,8 @@ test("server-renders category pages", async () => {
     ["/agent-passports", /Agent credibility/, /Open prototype passport/],
     ["/agent/researcher-42", /agent:researcher-42/, /Receipt timeline/],
     ["/bounties", /Bounty board/, /Receipt mints/],
+    ["/submit", /Receipt intake/, /Submit a receipt candidate/],
+    ["/review-queue", /Reviewer queue/, /Every row has a next action/],
     ["/protocol", /Protocol v0\.1/, /The minimum viable proof culture/],
     ["/multichain", /Open multichain/, /One canonical receipt/],
     ["/brand", /Brand system/, /Q\.E\.D\. seal selected/],

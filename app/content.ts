@@ -4,6 +4,7 @@ export const navigation = [
   { href: "/milestones", label: "Milestones" },
   { href: "/agent-passports", label: "Agents" },
   { href: "/bounties", label: "Bounties" },
+  { href: "/submit", label: "Submit" },
   { href: "/protocol", label: "Protocol" },
   { href: "/multichain", label: "Multichain" },
 ];
@@ -137,6 +138,53 @@ export const bounties = [
     artifact: "Hash, runtime log, and reproducible output.",
     verification: "Replay or signature check",
     reward: "Draft",
+  },
+];
+
+export const submissionChecklist = [
+  "Name the artifact people can inspect, not the person who made it.",
+  "State the exact check: command, reviewer action, replay method, or signature test.",
+  "Include the artifact hash or a pending hash placeholder if it still needs packaging.",
+  "Request a verifier by role or domain, not by social proximity.",
+  "Declare what should not count before the reviewer touches it.",
+];
+
+export const reviewQueue = [
+  {
+    queue_id: "QUEUE-7D91B2",
+    receipt_id: "POP-0004",
+    task_type: "agent-task",
+    artifact: "Agent benchmark replay trace",
+    check: "two-run reproduction with pinned inputs",
+    verifier: "eval steward",
+    hash: "sha256:pending-7d91",
+    status: "pending",
+    review_state: "Ready for review",
+    next_action: "Assign reviewer and attach replay log.",
+  },
+  {
+    queue_id: "QUEUE-43BF91",
+    receipt_id: "POP-0005",
+    task_type: "math-proof",
+    artifact: "Small Lean theorem patch",
+    check: "lake build, no sorry, reviewer note",
+    verifier: "mathlib reviewer",
+    hash: "sha256:pending-43bf",
+    status: "pending",
+    review_state: "Needs verifier",
+    next_action: "Find domain reviewer before receipt can be accepted.",
+  },
+  {
+    queue_id: "QUEUE-BB09D8",
+    receipt_id: "POP-0006",
+    task_type: "code-eval",
+    artifact: "Receipt NFT renderer regression test",
+    check: "npm test and visual fixture comparison",
+    verifier: "repo maintainer",
+    hash: "sha256:pending-bb09",
+    status: "pending",
+    review_state: "Needs artifact hash",
+    next_action: "Attach final hash after test fixture is pinned.",
   },
 ];
 
