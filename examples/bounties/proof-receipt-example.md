@@ -31,7 +31,7 @@ Maintainer review against the acceptance criteria and `docs/proof-receipt-schema
 
 Project maintainer or protocol steward.
 
-## Reward Terms
+## Reward Notes
 
 Reputation-only while v0.1 is in draft.
 

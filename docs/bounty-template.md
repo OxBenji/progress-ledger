@@ -71,11 +71,11 @@ Who is allowed to verify this bounty?
 
 State what qualifies them: maintainer, domain expert, protocol steward, formal methods reviewer, eval steward, or infrastructure reviewer.
 
-### Reward Terms
+### Reward Notes
 
 What reward is being offered, if any?
 
-Keep reward terms separate from verification. A receipt can be accepted before payment state changes.
+Keep reward notes separate from verification. A receipt can be accepted before payment state changes.
 
 ### Failure Credit
 
@@ -87,7 +87,7 @@ State:
 - what evidence is required
 - whether credit is reputation-only, partial reward, or no reward
 
-### Out of Scope
+### What Does Not Count
 
 What explicitly does not count?
 
@@ -112,11 +112,11 @@ This prevents vague submissions and scope creep.
 
 ## Reviewer Requirement
 
-## Reward Terms
+## Reward Notes
 
 ## Failure Credit
 
-## Out of Scope
+## What Does Not Count
 ```
 
 ## Example Bounty
@@ -147,7 +147,7 @@ Maintainer review against this checklist.
 
 Project maintainer or protocol steward.
 
-### Reward Terms
+### Reward Notes
 
 Reputation-only in v0.1 draft.
 
@@ -155,6 +155,6 @@ Reputation-only in v0.1 draft.
 
 A rejected version can still earn discussion credit if it reveals a missing field or unclear rule.
 
-### Out of Scope
+### What Does Not Count
 
 No backend, wallet, escrow, or token design.
